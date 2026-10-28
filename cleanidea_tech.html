@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>클린아이디어 기술력 — 여섯 가지 기술이 한 대에</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#8FCDB4; --green-deep:#0A0A0A; --mist:#0C0C0C; --paper:#000000; --ink:#F4F4F4; --ink-2:#A3A3A3;
+  --line:#262626; --water:#2E8C8A; --water-soft:#163535; --heat:#E0A855; --heat-soft:#241A0A;
+  --bg:var(--paper); --fg:var(--ink); color-scheme:dark;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ color-scheme:dark;
+  --green:#8FCDB4; --green-deep:#0B1F18; --mist:#13201B; --paper:#0E1713; --ink:#E6EFEA; --ink-2:#A9B8B0; --line:#2A3B33; --water:#6EC4C2; --water-soft:#163535; --heat:#E0A855; --heat-soft:#3A2B12; --bg:var(--paper); --fg:var(--ink);} }
+:root[data-theme="dark"]{ color-scheme:dark;
+  --green:#8FCDB4; --green-deep:#0B1F18; --mist:#13201B; --paper:#0E1713; --ink:#E6EFEA; --ink-2:#A9B8B0; --line:#2A3B33; --water:#6EC4C2; --water-soft:#163535; --heat:#E0A855; --heat-soft:#3A2B12; --bg:var(--paper); --fg:var(--ink);}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:18px;line-height:1.7;word-break:keep-all}
+h1,h2,h3{font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.25;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(28px,4.4vw,52px);font-weight:900}
+h2{font-size:clamp(24px,3vw,36px);font-weight:900}
+h3{font-size:22px;font-weight:600}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+section{padding:clamp(56px,8vw,112px) 0}
+.sec-head{max-width:760px;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head p{margin-top:14px;color:var(--ink-2);font-size:19px}
+:focus-visible{outline:3px solid var(--water);outline-offset:3px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#fff;color:#111;border-bottom:1px solid #E6E6E6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#fff;z-index:30}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:88px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;text-decoration:none;font-size:18px;color:#111;letter-spacing:.06em}
+.logo i{width:40px;height:40px;border-radius:50%;border:2px solid #111;color:#111;font-style:normal;display:grid;place-items:center;font-size:13px;font-weight:900}
+.menu{display:flex;gap:30px;list-style:none;margin:0;padding:0;font-size:13.5px;font-weight:700;letter-spacing:.08em}
+.menu a{text-decoration:none;color:#111;padding-bottom:6px;border-bottom:2px solid transparent}
+.menu a[aria-current]{border-color:#111}
+@media (max-width:860px){.menu{display:none}}
+
+/* block A */
+.hero{background:var(--green-deep);color:#F2F7F4;padding:clamp(64px,9vw,120px) 0 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{color:#fff}
+.hero .lead{margin-top:26px;font-size:19px;color:#C6D8CE;max-width:560px}
+.hero .lead strong{color:#fff;font-weight:500}
+.panel{aspect-ratio:4/3;border-radius:18px;background:radial-gradient(ellipse at 50% 70%,rgba(159,216,191,.25),transparent 60%),linear-gradient(160deg,#17322A,#0A1C15);border:1px solid #244439;position:relative;display:grid;place-items:center}
+.panel svg{width:80%;height:auto}
+.panel small{position:absolute;left:18px;bottom:14px;color:#7FA390;font-size:13px}
+.band{margin-top:clamp(40px,6vw,72px);border-top:1px solid #1C1C1C;background:#000}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.band div{padding:26px 0;border-right:1px solid #1C1C1C}
+.band div:last-child{border:0}
+.band b{display:block;font-family:"Noto Serif KR",serif;font-size:clamp(22px,2.6vw,34px);color:#fff;font-weight:800}
+.band span{color:#9FB9AC;font-size:15px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.band .wrap{grid-template-columns:1fr 1fr}.band div{border-right:0;border-bottom:1px solid #244439;padding:16px 0}.band div:nth-child(odd){padding-right:16px}}
+
+/* block B */
+.label-row{display:flex;align-items:center;gap:14px;margin:36px 0 18px;color:var(--green);font-weight:700;font-size:17px}
+.label-row::after{content:"";flex:1;height:1px;background:var(--line)}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.card{border:1px solid var(--line);border-radius:14px;padding:22px 20px;background:var(--bg);transition:border-color .2s,box-shadow .2s;display:flex;flex-direction:column;gap:12px}
+.card.lit{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 25%,transparent)}
+.card .no{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px}
+.card h3{font-size:20px}
+.card .how{color:var(--ink-2);font-size:15.5px;line-height:1.65}
+.card .get{font-size:16px;font-weight:500;padding-top:10px;border-top:1px dashed var(--line);margin-top:auto}
+.card .get::before{content:"사장님이 얻는 것";display:block;font-size:13px;color:var(--ink-2);font-weight:400;margin-bottom:2px}
+.card .num{font-family:"Noto Serif KR",serif;font-size:17px;color:var(--green);font-weight:800}
+.card.locked{background:var(--mist);border-style:dashed}
+.card.locked .no{background:var(--ink-2)}
+.card.keep{grid-column:1/-1;flex-direction:row;align-items:flex-start;gap:28px;background:var(--heat-soft);border-color:transparent}
+.card.keep .no{background:var(--heat);flex:none}
+.card.keep .body{display:grid;grid-template-columns:1.2fr 1fr .8fr;gap:24px;flex:1}
+.card.keep .get{border-top:0;padding-top:0;margin:0}
+.closing{margin-top:28px;text-align:center;font-family:"Noto Serif KR",serif;font-size:clamp(18px,2vw,24px);font-weight:600;color:var(--green)}
+.cards.four{grid-template-columns:repeat(4,1fr)}
+.cards.two{grid-template-columns:1fr 1fr}
+@media (max-width:1000px){.cards,.cards.four{grid-template-columns:repeat(2,1fr)}.card.keep .body{grid-template-columns:1fr}}
+@media (max-width:560px){.cards,.cards.four,.cards.two{grid-template-columns:1fr}.card.keep{flex-direction:column}}
+
+/* block C */
+.cross{background:var(--mist)}
+.diagram{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,3vw,36px);overflow-x:auto}
+.diagram svg{width:100%;min-width:620px;height:auto;display:block}
+.hot{cursor:pointer}
+.hot circle{fill:var(--green);transition:transform .15s;transform-box:fill-box;transform-origin:center}
+.hot text{fill:#fff;font-weight:700;font-size:15px;pointer-events:none}
+.hot:hover circle,.hot.on circle{transform:scale(1.18)}
+.hot.dim circle{fill:var(--ink-2)}
+.hot.heat circle{fill:#E0492E}
+.cap{margin-top:18px;color:var(--ink-2);font-size:16px}
+.pick{margin-top:10px;min-height:1.7em;font-weight:500}
+@keyframes rise{from{opacity:.15;transform:translateY(0)}to{opacity:.8;transform:translateY(-18px)}}
+@keyframes push{from{opacity:.15;transform:translateX(0)}to{opacity:.8;transform:translateX(-18px)}}
+.w-up{animation:rise 2.4s ease-in-out infinite alternate}
+.w-fw{animation:push 2.4s ease-in-out infinite alternate}
+@keyframes heat{from{opacity:.2;transform:translateY(0)}to{opacity:.9;transform:translateY(28px)}}
+.heatw{animation:heat 2s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){.w-up,.w-fw{animation:none;opacity:.6}}
+
+/* block D */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:999px;padding:8px 16px;font:inherit;font-size:15px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+.chart{border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:24px;background:var(--bg)}
+.chart h3{font-size:17px;font-weight:500;color:var(--ink-2);margin-bottom:12px;font-family:"Noto Sans KR",sans-serif}
+.chart svg{width:100%;height:auto;display:block}
+.chart .bar{fill:var(--water)}
+.chart .bar.sel{fill:var(--green)}
+.chart text{font-size:13px;fill:var(--ink-2)}
+.chart text.v{fill:var(--fg);font-weight:700}
+.tbl{width:100%;border-collapse:collapse;font-size:16px}
+.tbl th,.tbl td{padding:14px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl th{font-weight:500;color:var(--ink-2);font-size:14.5px;vertical-align:bottom}
+.tbl th small{display:block;color:var(--ink-2);font-weight:400;font-size:12.5px}
+.tbl tr.sel td{background:color-mix(in srgb,var(--green) 10%,transparent);font-weight:700}
+.tbl td.later{color:var(--ink-2);font-weight:400}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.tip{position:relative;display:inline-block;width:18px;height:18px;border-radius:50%;border:1px solid var(--line);font-size:12px;text-align:center;line-height:16px;margin-left:4px;cursor:help;color:var(--ink-2)}
+.tip span{display:none;position:absolute;left:50%;bottom:130%;transform:translateX(-50%);width:230px;background:var(--ink);color:var(--bg);padding:10px 12px;border-radius:8px;font-size:13px;line-height:1.5;text-align:left;white-space:normal;font-weight:400;z-index:5}
+.tip:hover span,.tip:focus span{display:block}
+.mcard{display:none;border:1px solid var(--line);border-radius:16px;padding:22px}
+.mcard .big{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mcard .big div{padding:14px;background:var(--mist);border-radius:10px}
+.mcard .big b{display:block;font-family:"Noto Serif KR",serif;font-size:28px;font-weight:800;color:var(--green)}
+.mcard .big span{font-size:14px;color:var(--ink-2)}
+.mcard .seat{margin-top:14px;color:var(--ink-2);font-size:15px}
+.note{margin-top:16px;font-size:14px;color:var(--ink-2)}
+@media (max-width:700px){.tbl-wrap,.chart{display:none}.mcard{display:block}}
+
+/* block E */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery figure{margin:0;aspect-ratio:1;border-radius:12px;background:var(--mist);border:1px dashed var(--line);display:grid;place-items:center;color:var(--ink-2);font-size:14px;text-align:center;padding:12px}
+@media (max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
+
+/* block F */
+.cta{background:var(--green-deep);color:#F2F7F4;text-align:center}
+.cta h2{color:#fff}
+.cta p{margin:16px auto 0;max-width:620px;color:#C6D8CE;font-size:18px}
+.btn{display:inline-block;margin-top:32px;background:#fff;color:#000;text-decoration:none;font-weight:700;font-size:19px;padding:18px 36px;border-radius:0}
+.btn.ghost{background:transparent;color:#fff;border:1px solid #4A4A4A;margin-left:12px}
+.steps{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:36px;font-size:15px;color:#9FB9AC}
+.steps span::after{content:"›";margin-left:8px}
+.steps span:last-child::after{content:""}
+.cta .report{margin:40px auto 0;max-width:720px;text-align:left;background:#0B2219;border:1px solid #244439;border-radius:14px;padding:22px 26px;font-size:15.5px;color:#C6D8CE}
+.cta .report b{color:#fff}
+@media (max-width:560px){.btn.ghost{margin:12px 0 0}}
+
+footer{padding:34px 0;border-top:1px solid var(--line);color:var(--ink-2);font-size:14.5px}
+
+/* === 라이트 프리미엄 톤 통일 (10/28) — 기술력 === */
+:root{--green:#0F3D2E;--green-deep:#0F3D2E;--mist:#F0EFEA;--paper:#F6F5F1;--ink:#121412;--ink-2:#6B6E6A;--line:rgba(18,20,18,.12);--water:#2E8C8A;--water-soft:#DCEFEA;--heat:#B8955A;--heat-soft:#FBF6EC;--bg:var(--paper);--fg:var(--ink);color-scheme:light}
+:root:not([data-theme="light"]),:root[data-theme="dark"]{--green:#0F3D2E;--green-deep:#0F3D2E;--mist:#F0EFEA;--paper:#F6F5F1;--ink:#121412;--ink-2:#6B6E6A;--line:rgba(18,20,18,.12);--water:#2E8C8A;--water-soft:#DCEFEA;--heat:#B8955A;--heat-soft:#FBF6EC;--bg:var(--paper);--fg:var(--ink)}
+.nav{background:rgba(246,245,241,.92)!important;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)!important}
+.logo i{background:#0F3D2E!important;color:#fff!important;border:0!important}
+.band{background:#0B2E22!important;border-color:rgba(255,255,255,.12)!important}.band div{border-color:rgba(255,255,255,.12)!important}
+.card,.diagram,.chart,.tbl-wrap,.mcard{background:#fff!important}
+.card .no{background:#0F3D2E}.card.locked{background:#F0EFEA!important}.card.locked .no{background:#A3A6A1}
+.card.keep{background:#FBF6EC!important}
+.tbl th{color:#6B6E6A}.tbl tr.sel td{background:rgba(15,61,46,.08)!important}
+.tabs button[aria-selected="true"]{background:#0F3D2E!important;border-color:#0F3D2E!important}
+.hot circle{fill:#0F3D2E}.hot.heat circle{fill:#E0492E}.hot.dim circle{fill:#A3A6A1}
+.gallery figure{background:#fff!important}
+.cta{background:#0F3D2E!important}.cta .report{background:rgba(0,0,0,.2)!important;border-color:rgba(255,255,255,.15)!important}
+.btn{border-radius:2px!important}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#121412"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3DC4F5"/><stop offset="1" stop-color="#0B7FD6"/></linearGradient></defs><circle cx="11" cy="7" r="6" fill="url(#lg)"/><rect x="5" y="16" width="12" height="22" rx="6" fill="url(#lg)"/><rect x="23" y="2" width="9" height="24" rx="4.5" fill="url(#lg)"/><circle cx="27.5" cy="33" r="4.5" fill="url(#lg)"/></svg><span><b style="display:block;font-family:'Noto Sans KR',sans-serif;font-size:21px;font-weight:900;letter-spacing:-.02em;line-height:1.1;color:#121412">클린아이디어</b><small style="display:block;font-family:Inter,sans-serif;font-size:8.5px;letter-spacing:.2em;font-weight:700;color:#6B6E6A">ULTRASONIC CLEANING SYSTEMS</small></span></a>
+  <ul class="menu">
+    <li><a href="index.html#products">제품</a></li><li><a href="#top" aria-current="page">기술</a></li><li><a href="cleanidea_sites.html">설치사례</a></li>
+    <li><a href="cleanidea_custom.html">구매 및 견적문의</a></li><li><a href="index.html#company">회사소개</a></li>
+  </ul>
+</div></nav>
+
+<!-- 블록 A -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>초음파세척기를 다시 설계했습니다.<br>여섯 가지 특허 기술이 한 대에서 같이 일합니다.</h1>
+      <p class="lead">세척력을 만드는 기술 다섯, 그 세척력을 지키는 기술 하나. 바닥과 뒷면에서 따로 올리는 두 파동, 파장에 맞춰 계산한 진동자 위치, 버블이 띄우고 초음파가 닦는 순서 운전, 그리고 적외선으로 잡은 수온.<br><strong>세계 최초를 말하지 않겠습니다. 대신 측정값을 보여드립니다.</strong></p>
+    </div>
+    <div class="panel" aria-label="듀얼 히팅 360° 초음파세척기">
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjY0MCIgdmlld0JveD0iMCAwIDkwMCA2NDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLrk4Dslrwg7Z6I7YyFIDM2MMKwIj4KPGRlZnM+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImZyb250IiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRDNEN0Q4Ii8+PHN0b3Agb2Zmc2V0PSIuMTgiIHN0b3AtY29sb3I9IiNFRUYwRjEiLz48c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjQzlDRUQwIi8+PHN0b3Agb2Zmc2V0PSIuODIiIHN0b3AtY29sb3I9IiNFOEVBRUIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNCRUMzQzUiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJzaWRlIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjQUVCNEI2Ii8+PHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iIzk3OURBMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0I5QkZDMSIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9InRvcCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0Y2RjdGOCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0M5Q0VEMCIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImJhciIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0VFRjBGMSIvPjxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiNDOUNFRDAiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNFM0U2RTciLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJkb29yIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjQzlDRUQwIi8+PHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iI0U4RUFFQiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0QzRDdEOCIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImJydXNoIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9Ii4zNSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD4KIDxsaW5lYXJHcmFkaWVudCBpZD0id2F0ZXIiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNBOUUyRDgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyRThDOEEiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJnb2xkIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjQzc5QjNCIi8+PHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iI0U5Qzk2QSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0I5OEEyRSIvPjwvbGluZWFyR3JhZGllbnQ+CiA8cmFkaWFsR3JhZGllbnQgaWQ9ImlyIiBjeD0iNTAlIiBjeT0iMCUiIHI9IjcwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkY1QTNDIiBzdG9wLW9wYWNpdHk9Ii45NSIvPjxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiNGRjdBNEMiIHN0b3Atb3BhY2l0eT0iLjM1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkY3QTRDIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PgogPHJhZGlhbEdyYWRpZW50IGlkPSJtaW50IiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzlGRDhCRiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzlGRDhCRiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KIDxyYWRpYWxHcmFkaWVudCBpZD0ic2hhZG93IiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwMCIgc3RvcC1vcGFjaXR5PSIuMzIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CiA8cGF0dGVybiBpZD0iaGV4IiB3aWR0aD0iMjIiIGhlaWdodD0iMTkiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxyZWN0IHdpZHRoPSIyMiIgaGVpZ2h0PSIxOSIgZmlsbD0iIzI2MkEyOSIvPjxjaXJjbGUgY3g9IjExIiBjeT0iOS41IiByPSI0LjYiIGZpbGw9IiMwQjBEMEQiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNC42IiBmaWxsPSIjMEIwRDBEIi8+PGNpcmNsZSBjeD0iMjIiIGN5PSIwIiByPSI0LjYiIGZpbGw9IiMwQjBEMEQiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMTkiIHI9IjQuNiIgZmlsbD0iIzBCMEQwRCIvPjxjaXJjbGUgY3g9IjIyIiBjeT0iMTkiIHI9IjQuNiIgZmlsbD0iIzBCMEQwRCIvPjwvcGF0dGVybj4KIDxwYXR0ZXJuIGlkPSJncmFpbiIgd2lkdGg9IjQiIGhlaWdodD0iMjAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4wOCIvPjxyZWN0IHg9IjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMCIgb3BhY2l0eT0iLjAzIi8+PC9wYXR0ZXJuPgogPGZpbHRlciBpZD0iYmx1ciI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTQiLz48L2ZpbHRlcj4KIDxmaWx0ZXIgaWQ9ImJsdXIyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0Ii8+PC9maWx0ZXI+CjwvZGVmcz4KPGVsbGlwc2UgY3g9IjQ2MCIgY3k9IjU4OCIgcng9IjM2MCIgcnk9IjQwIiBmaWxsPSJ1cmwoI3NoYWRvdykiLz4KPGVsbGlwc2UgY3g9IjQwMCIgY3k9IjU3MiIgcng9IjI1MCIgcnk9IjI2IiBmaWxsPSJ1cmwoI2lyKSIgb3BhY2l0eT0iLjU1Ii8+CjwhLS0g7Lih66m0IC0tPgo8cGF0aCBkPSJNNjQwIDIzMiBMNzgwIDE4NCBMNzgwIDUxMiBMNjQwIDU2MCBaIiBmaWxsPSJ1cmwoI3NpZGUpIi8+CjxwYXRoIGQ9Ik02NDAgMjMyIEw3ODAgMTg0IEw3ODAgNTEyIEw2NDAgNTYwIFoiIGZpbGw9InVybCgjZ3JhaW4pIi8+Cgo8IS0tIOycl+uptCArIOyEuOyymeyhsCAtLT4KPHBhdGggZD0iTTE0MCAyMzIgTDI4MCAxODQgTDc4MCAxODQgTDY0MCAyMzIgWiIgZmlsbD0idXJsKCN0b3ApIi8+CjxwYXRoIGQ9Ik0xOTAgMjI2IEwzMDAgMTkyIEw3NDUgMTkyIEw2MzUgMjI2IFoiIGZpbGw9IiMxMTE1MTQiLz4KPHBhdGggZD0iTTIwNSAyMjQgTDMwNiAxOTYgTDczNSAxOTYgTDYzNCAyMjQgWiIgZmlsbD0idXJsKCN3YXRlcikiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utb3BhY2l0eT0iLjYiIHN0cm9rZS13aWR0aD0iMS41Ij48cGF0aCBkPSJNMzMwIDIxMiBxMTggLTggMzYgMCB0MzYgMCB0MzYgMCB0MzYgMCB0MzYgMCB0MzYgMCIvPjxwYXRoIGQ9Ik00MDAgMjA0IHExOCAtOCAzNiAwIHQzNiAwIHQzNiAwIHQzNiAwIi8+PC9nPgo8ZWxsaXBzZSBjeD0iNDcwIiBjeT0iMjA2IiByeD0iMjAwIiByeT0iMjIiIGZpbGw9InVybCgjbWludCkiIG9wYWNpdHk9Ii45IiBmaWx0ZXI9InVybCgjYmx1cikiLz4KPCEtLSDrkqQg7KGw7J6R67aAIOuwlCAtLT4KPHBhdGggZD0iTTI4MCAxMjAgTDc4MCAxMjAgTDc4MCAxODQgTDI4MCAxODQgWiIgZmlsbD0idXJsKCNiYXIpIi8+CjxwYXRoIGQ9Ik0yODAgMTIwIEw3ODAgMTIwIEw3ODAgMTg0IEwyODAgMTg0IFoiIGZpbGw9InVybCgjZ3JhaW4pIi8+CjxwYXRoIGQ9Ik0yODAgMTIwIEwzMDAgMTEyIEw4MDAgMTEyIEw3ODAgMTIwIFoiIGZpbGw9IiNGNEY2RjUiLz4KPHBhdGggZD0iTTc4MCAxMjAgTDgwMCAxMTIgTDgwMCAxNzYgTDc4MCAxODQgWiIgZmlsbD0iIzlBQTE5RiIvPgo8IS0tIOycoO2PrOyngCDrnbzrsqggKOqygOyglSvquIjthYwpIC0tPgo8cmVjdCB4PSIyOTgiIHk9IjEyOCIgd2lkdGg9IjMwNiIgaGVpZ2h0PSI0OCIgcng9IjUiIGZpbGw9InVybCgjZ29sZCkiLz4KPHJlY3QgeD0iMzAyIiB5PSIxMzIiIHdpZHRoPSIyOTgiIGhlaWdodD0iNDAiIHJ4PSIzIiBmaWxsPSIjMEEwQTBBIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxMiAxMzkpIj48Y2lyY2xlIGN4PSI0IiBjeT0iMyIgcj0iMyIgZmlsbD0idXJsKCNnb2xkKSIvPjxyZWN0IHg9IjEiIHk9IjgiIHdpZHRoPSI2IiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0idXJsKCNnb2xkKSIvPjxyZWN0IHg9IjEwIiB5PSIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIxMiIgcng9IjIiIGZpbGw9InVybCgjZ29sZCkiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjE4IiByPSIyLjIiIGZpbGw9InVybCgjZ29sZCkiLz48L2c+Cjx0ZXh0IHg9IjMzMiIgeT0iMTQ3IiBmb250LXNpemU9IjguNSIgZm9udC1mYW1pbHk9IidOb3RvIFNhbnMgS1InLEFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNFOUM5NkEiPu2BtOumsOyVhOydtOuUlOyWtDwvdGV4dD4KPHRleHQgeD0iNDUwIiB5PSIxNDYiIGZvbnQtc2l6ZT0iNyIgZm9udC1mYW1pbHk9IkludGVyLEFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iI0U5Qzk2QSI+TkVXMjAyNjwvdGV4dD4KPGxpbmUgeDE9IjM3OCIgeTE9IjE1MCIgeDI9IjQ3OCIgeTI9IjE1MCIgc3Ryb2tlPSIjQzc5QjNCIiBzdHJva2Utd2lkdGg9Ii44Ii8+Cjx0ZXh0IHg9IjMxMiIgeT0iMTY2IiBmb250LXNpemU9IjEyLjUiIGZvbnQtZmFtaWx5PSJJbnRlcixBcmlhbCxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI2dvbGQpIiBsZXR0ZXItc3BhY2luZz0iLS4zIj5IZWF0aW5nIFNtYXJ0IER1YWwgMzYwwrA8L3RleHQ+Cjx0ZXh0IHg9IjU5NCIgeT0iMTY3IiBmb250LXNpemU9IjEyIiBmb250LWZhbWlseT0iSW50ZXIsQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0idXJsKCNnb2xkKSIgdGV4dC1hbmNob3I9ImVuZCI+MTgwMC05NjI5PC90ZXh0Pgo8bGluZSB4MT0iMzA4IiB5MT0iMTcwIiB4Mj0iNTk2IiB5Mj0iMTcwIiBzdHJva2U9IiNDNzlCM0IiIHN0cm9rZS13aWR0aD0iLjgiLz4KPCEtLSDsobDsnpHrtoAgKOyYpOuluOyqvSkgLS0+CjxyZWN0IHg9IjYyMCIgeT0iMTM0IiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjM2IiByeD0iNCIgZmlsbD0iIzBCMUYxOCIvPgo8cmVjdCB4PSI2MjgiIHk9IjE0MSIgd2lkdGg9IjcwIiBoZWlnaHQ9IjIyIiByeD0iMiIgZmlsbD0iIzlGRDhCRiIgb3BhY2l0eT0iLjkyIi8+Cjx0ZXh0IHg9IjY2MyIgeT0iMTU2IiBmb250LXNpemU9IjEwIiBmb250LWZhbWlseT0iSW50ZXIsQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzBCMUYxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NDDCsEM8L3RleHQ+CjxnIGZvbnQtZmFtaWx5PSJJbnRlcixBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjgiIGZpbGw9IiM5RkQ4QkYiPjx0ZXh0IHg9IjcwOCIgeT0iMTQ5Ij5QT1dFUiBPTjwvdGV4dD48dGV4dCB4PSI3MDgiIHk9IjE2MSI+VElNRSA0NDI8L3RleHQ+PC9nPjxnIGZpbGw9IiMyQTJFMkQiIHN0cm9rZT0iIzlGRDhCRiIgc3Ryb2tlLXdpZHRoPSIxIj48cmVjdCB4PSI3NTIiIHk9IjEzOSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiByeD0iMiIvPjxyZWN0IHg9Ijc1MiIgeT0iMTUzIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHJ4PSIyIi8+PHJlY3QgeD0iNzY2IiB5PSIxMzkiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjIiLz48cmVjdCB4PSI3NjYiIHk9IjE1MyIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiByeD0iMiIvPjwvZz4KPCEtLSDsoITrqbQgLS0+CjxwYXRoIGQ9Ik0xNDAgMjMyIEw2NDAgMjMyIEw2NDAgNTYwIEwxNDAgNTYwIFoiIGZpbGw9InVybCgjZnJvbnQpIi8+CjxwYXRoIGQ9Ik0xNDAgMjMyIEw2NDAgMjMyIEw2NDAgNTYwIEwxNDAgNTYwIFoiIGZpbGw9InVybCgjZ3JhaW4pIi8+CjxyZWN0IHg9IjE0MCIgeT0iMjMyIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMyOCIgZmlsbD0idXJsKCNicnVzaCkiIG9wYWNpdHk9Ii41Ii8+CjxwYXRoIGQ9Ik0xNDAgMjMyIEw2NDAgMjMyIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIvPgo8IS0tIO2DgOqztSDtjKjrhJAgLS0+CjxyZWN0IHg9IjI0MCIgeT0iMjYyIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE2MCIgcng9IjYiIGZpbGw9InVybCgjaGV4KSIvPgo8cmVjdCB4PSIyNDAiIHk9IjI2MiIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNjAiIHJ4PSI2IiBmaWxsPSJub25lIiBzdHJva2U9IiM3RTg1ODQiIHN0cm9rZS13aWR0aD0iMiIvPgo8cmVjdCB4PSIyNDAiIHk9IjI2MiIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNjAiIHJ4PSI2IiBmaWxsPSJ1cmwoI21pbnQpIiBvcGFjaXR5PSIuMTgiLz4KPCEtLSDsoITrqbQg7Iqk7Yuw7LukOiDsmbzsqr0g7Iqk66eI7Yq465OA7Ja8ICsgS0MgLyDsmKTrpbjsqr0g7ZmU7IOB7KO87J2YICsg7Jm47Iud6rCA7KGx6rO17KCc7ZqMIDPrhYQgLS0+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2MCAyNjgpIj48cmVjdCB3aWR0aD0iNjgiIGhlaWdodD0iNzAiIHJ4PSIzIiBmaWxsPSIjMTExIi8+PHRleHQgeD0iMzQiIHk9IjE4IiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtZmFtaWx5PSInTm90byBTYW5zIEtSJyxBcmlhbCxzYW5zLXNlcmlmIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7siqTrp4jtirjrk4Dslrw8L3RleHQ+PHRleHQgeD0iMzQiIHk9IjQ0IiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iMzAwIiBmb250LWZhbWlseT0iSW50ZXIsQXJpYWwsc2Fucy1zZXJpZiIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MzYwwrA8L3RleHQ+PHRleHQgeD0iMzQiIHk9IjYwIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtZmFtaWx5PSJJbnRlcixBcmlhbCxzYW5zLXNlcmlmIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMSI+SEVBVElORzwvdGV4dD48L2c+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2MCAzNDYpIj48cmVjdCB3aWR0aD0iNjgiIGhlaWdodD0iNzAiIHJ4PSIzIiBmaWxsPSJ1cmwoI2dvbGQpIi8+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY2IiByeD0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2QTFFIiBzdHJva2Utd2lkdGg9Ii44Ii8+PHRleHQgeD0iMzQiIHk9IjM0IiBmb250LXNpemU9IjI2IiBmb250LXdlaWdodD0iOTAwIiBmb250LWZhbWlseT0iSW50ZXIsQXJpYWwsc2Fucy1zZXJpZiIgZmlsbD0iIzNBMkEwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+S0M8L3RleHQ+PHRleHQgeD0iMzQiIHk9IjQ4IiBmb250LXNpemU9IjYiIGZvbnQtZmFtaWx5PSJJbnRlcixBcmlhbCxzYW5zLXNlcmlmIiBmaWxsPSIjM0EyQTA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5ZSDA3MTY0LTE5MDAxPC90ZXh0PjxyZWN0IHg9IjgiIHk9IjU0IiB3aWR0aD0iNTIiIGhlaWdodD0iMiIgZmlsbD0iIzNBMkEwNSIgb3BhY2l0eT0iLjYiLz48cmVjdCB4PSI4IiB5PSI1OSIgd2lkdGg9IjUyIiBoZWlnaHQ9IjIiIGZpbGw9IiMzQTJBMDUiIG9wYWNpdHk9Ii42Ii8+PHJlY3QgeD0iOCIgeT0iNjQiIHdpZHRoPSIzNCIgaGVpZ2h0PSIyIiBmaWxsPSIjM0EyQTA1IiBvcGFjaXR5PSIuNiIvPjwvZz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTUyIDI2OCkiPjxyZWN0IHdpZHRoPSI2OCIgaGVpZ2h0PSI3MCIgcng9IjMiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI0M5Q0RDQyIvPjxwYXRoIGQ9Ik0zNCAxMCBMNTIgNDAgTDE2IDQwIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0QyMiIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTMwIDM0IHEyIC02IDAgLTEwIHE0IC0zIDIgLTggTTM4IDM0IHEyIC02IDAgLTEwIHE0IC0zIDIgLTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzExMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHJlY3QgeD0iMCIgeT0iNDgiIHdpZHRoPSI2OCIgaGVpZ2h0PSIyMiIgcng9IjAiIGZpbGw9IiMxMTEiLz48dGV4dCB4PSIzNCIgeT0iNjMiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtZmFtaWx5PSInTm90byBTYW5zIEtSJyxBcmlhbCxzYW5zLXNlcmlmIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMiI+7ZmU7IOB7KO87J2YPC90ZXh0PjwvZz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTUyIDM0NikiPjxyZWN0IHdpZHRoPSI2OCIgaGVpZ2h0PSI3MCIgcng9IjMiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI0M5Q0RDQyIvPjxjaXJjbGUgY3g9IjM0IiBjeT0iMTYiIHI9IjkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzdCMkZBMCIgc3Ryb2tlLXdpZHRoPSIzIi8+PGNpcmNsZSBjeD0iMzQiIGN5PSIxNiIgcj0iMyIgZmlsbD0iI0U4NDM5MyIvPjx0ZXh0IHg9IjM0IiB5PSIzNiIgZm9udC1zaXplPSI2LjUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtZmFtaWx5PSInTm90byBTYW5zIEtSJyxBcmlhbCxzYW5zLXNlcmlmIiBmaWxsPSIjMTExIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7smbjsi53qsIDsobHqs7XsoJztmow8L3RleHQ+PHRleHQgeD0iMzQiIHk9IjQ1IiBmb250LXNpemU9IjYuNSIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1mYW1pbHk9IidOb3RvIFNhbnMgS1InLEFyaWFsLHNhbnMtc2VyaWYiIGZpbGw9IiMxMTEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuyduOymnSDsoJztkog8L3RleHQ+PHJlY3QgeD0iNiIgeT0iNTAiIHdpZHRoPSI1NiIgaGVpZ2h0PSIxNCIgcng9IjIiIGZpbGw9IiMwRjNEMkUiLz48dGV4dCB4PSIzNCIgeT0iNjAiIGZvbnQtc2l6ZT0iOCIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1mYW1pbHk9IidOb3RvIFNhbnMgS1InLEFyaWFsLHNhbnMtc2VyaWYiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjPrhYQgQS9TIOuztOyepTwvdGV4dD48L2c+CjwhLS0g7ZWY64uoIOuPhOyWtCArIOyggeyZuOyEoCAtLT4KPHJlY3QgeD0iMTcyIiB5PSI0NDAiIHdpZHRoPSI0MzYiIGhlaWdodD0iOTYiIHJ4PSI2IiBmaWxsPSJ1cmwoI2Rvb3IpIiBzdHJva2U9IiM4Rjk2OTUiIHN0cm9rZS13aWR0aD0iMS41Ii8+CjxyZWN0IHg9IjE3MiIgeT0iNDQwIiB3aWR0aD0iNDM2IiBoZWlnaHQ9Ijk2IiByeD0iNiIgZmlsbD0idXJsKCNncmFpbikiLz4KPHJlY3QgeD0iMTcyIiB5PSI1MzYiIHdpZHRoPSI0MzYiIGhlaWdodD0iMTAiIGZpbGw9InVybCgjaXIpIiBvcGFjaXR5PSIuOSIgZmlsdGVyPSJ1cmwoI2JsdXIyKSIvPgo8cmVjdCB4PSIxOTAiIHk9IjQ4MiIgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOEY5Njk1Ii8+CjxjaXJjbGUgY3g9IjU4OCIgY3k9IjQ4OCIgcj0iNSIgZmlsbD0iIzdFODU4NCIvPgo8IS0tIOqzoOyglSDri6TrpqwgLS0+CjxnPjxyZWN0IHg9IjE1NiIgeT0iNTYwIiB3aWR0aD0iMjIiIGhlaWdodD0iMzQiIHJ4PSIyIiBmaWxsPSJ1cmwoI3NpZGUpIi8+PHJlY3QgeD0iMTUwIiB5PSI1OTIiIHdpZHRoPSIzNCIgaGVpZ2h0PSI4IiByeD0iMyIgZmlsbD0iIzJBMkUyRCIvPgo8cmVjdCB4PSI2MTIiIHk9IjU2MCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjM0IiByeD0iMiIgZmlsbD0idXJsKCNzaWRlKSIvPjxyZWN0IHg9IjYwNiIgeT0iNTkyIiB3aWR0aD0iMzQiIGhlaWdodD0iOCIgcng9IjMiIGZpbGw9IiMyQTJFMkQiLz4KPHJlY3QgeD0iNzU0IiB5PSI1MTIiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMCIgcng9IjIiIGZpbGw9IiM2RTc1NzQiLz48cmVjdCB4PSI3NDgiIHk9IjU0MCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjciIHJ4PSIzIiBmaWxsPSIjMkEyRTJEIi8+CjxyZWN0IHg9IjM3MiIgeT0iNTYwIiB3aWR0aD0iMjIiIGhlaWdodD0iMzQiIHJ4PSIyIiBmaWxsPSJ1cmwoI3NpZGUpIiBvcGFjaXR5PSIuOSIvPjxyZWN0IHg9IjM2NiIgeT0iNTkyIiB3aWR0aD0iMzQiIGhlaWdodD0iOCIgcng9IjMiIGZpbGw9IiMyQTJFMkQiLz48L2c+CjxwYXRoIGQ9Ik0xNDAgMjMyIEwxNDAgNTYwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS1vcGFjaXR5PSIuOCIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxwYXRoIGQ9Ik02NDAgMjMyIEw2NDAgNTYwIiBzdHJva2U9IiM1RTY1NjQiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=" alt="듀얼 히팅 360°" style="width:96%;height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.35))">
+      <small>듀얼 히팅 360° — 바닥·뒷면 듀얼 진동부 · 3D</small>
+    </div>
+  </div>
+  <div class="band"><div class="wrap">
+    <div><b>6가지</b><span>특허 기술, 한 세척조 안에</span></div>
+    <div><b>7~9 W</b><span>물 1리터당 초음파 세기</span></div>
+    <div><b>33 kHz</b><span>공진을 따라가는 발진기</span></div>
+    <div><b>12,000대</b><span>전국 누적 납품</span></div>
+  </div></div>
+</header>
+
+<!-- 블록 B -->
+<section id="six">
+  <div class="wrap">
+    <div class="sec-head"><h2>여섯 가지 기술</h2><p>각 기술이 무엇을 하는지, 그래서 사장님 주방에서 무엇이 달라지는지 한 장씩 적었습니다.</p></div>
+
+    <div class="label-row">세척력을 만드는 다섯</div>
+    <div class="cards">
+      <article class="card" data-t="1"><span class="no">1</span><h3>듀얼 발진기 (AC + DC)</h3>
+        <p class="how">발진기는 진동자를 울리는 전원입니다. DC 방식은 한결같은 세기로 잔기름까지 고르게 닦고, AC 방식은 초당 120번 세기가 커졌다 작아지며 물결을 크게 일으켜 큰 이물을 떼어냅니다. 우리는 두 방식을 한 대에 같이 씁니다 — 각각의 약점(진동자끼리 서로 지우는 자리)은 사라지고 장점만 남습니다.</p>
+        <p class="get">잔기름도, 말라붙은 밥풀도, 불판 기름때도 한 번에.</p>
+        <p class="num">등록 특허 · 전력 변환 효율 95% 이상 · 채널 2개</p></article>
+
+      <article class="card" data-t="2"><span class="no">2</span><h3>듀얼 진동부</h3>
+        <p class="how">바닥에서 위로 올리는 파동과 뒷면에서 앞으로 미는 파동은 방향이 직각입니다. 한쪽의 약한 띠를 다른 쪽의 센 띠가 메웁니다.</p>
+        <p class="get">바닥에만 진동자가 있는 세척기의 사각지대가 사라집니다.</p>
+        <p class="num">강한 세척 구역: 바닥만 → 듀얼 (실측 후 기입)</p></article>
+
+      <article class="card locked" data-t="3"><span class="no">3</span><h3>파장 기반 배열</h3>
+        <p class="how">진동자를 어디에 둘지 초음파의 물속 파장을 기준으로 계산합니다. 벽에 반사된 파동과 겹치는 자리, 진동자끼리 서로 지우는 간격을 피해 배치합니다.</p>
+        <p class="get">같은 진동자 수로 더 넓은 면적이 닦입니다.</p>
+        <p class="num">특허 출원 후 공개</p></article>
+
+      <article class="card" data-t="4"><span class="no">4</span><h3>33 kHz 공진 추적 · 다중 변조</h3>
+        <p class="how">진동자가 가장 잘 떨리는 주파수는 물 온도·물 높이·식기 양에 따라 조금씩 움직입니다. 발진기가 이를 읽어 자동으로 따라가고, 동시에 주파수·세기·폭·시간을 계속 바꾼니다. 파동이 서로 지우는 자리가 한곳에 머물지 못하고, 오염 종류(기름·녹말)에 맞는 대역이 번갈아 들어갑니다.</p>
+        <p class="get">물이 차갑든 뜨겁든, 식기가 많든 적든 같은 출력입니다.</p>
+        <p class="num">등록 특허(파동 변화 세척) · 4중 변조 동시 제어</p></article>
+
+      <article class="card" data-t="5"><span class="no">5</span><h3>웨이브 버블 순서 운전</h3>
+        <p class="how">공기방울은 초음파를 막습니다. 그래서 둘을 동시에 틀지 않고 버블 → 기포 가라앉힘 → 초음파 순서로 자동 운전합니다. 버블은 둘레 4구역을 차례로 돌려 식기를 흔듭니다.</p>
+        <p class="get">버튼 하나. 동시에 틀 때보다 초음파가 제 힘을 냅니다.</p>
+        <p class="num">동시 가동 대비 초음파 효율 (실측 후 기입)</p></article>
+    </div>
+
+    <div class="label-row">세척력을 지키는 하나</div>
+    <div class="cards">
+      <article class="card keep" data-t="6"><span class="no">6</span>
+        <div class="body">
+          <div><h3>적외선 히팅</h3><p class="how" style="margin-top:8px">히터가 한 점에서 물을 데우는 게 아니라 적외선으로 세척조 전체를 고르게 데웁니다. 수온이 고르면 세척 세기가 자리마다 같고, 온도가 흔들리지 않아야 ④ 공진 추적이 안정됩니다.</p></div>
+          <p class="get">처음 1분과 마지막 1분의 세척력이 같습니다.</p>
+          <p class="num">세척조 안 수온 편차 ±N°C (4지점 실측 후 기입)</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="label-row">발진기 한눈에 — 세척기의 심장</div>
+    <div class="cards four">
+      <article class="card"><h3 style="font-size:18px">부드럽게 켜집니다</h3><p class="how">전원을 넣으면 한 번에 최대 출력으로 때리지 않고 서서히 올립니다(소프트 스타트). 진동자 수명이 길어집니다.</p></article>
+      <article class="card"><h3 style="font-size:18px">전기를 허비하지 않습니다</h3><p class="how">전력 변환 효율 95% 이상. 발열이 적어 고장이 줄고 전기요금도 줄어듭니다.</p></article>
+      <article class="card"><h3 style="font-size:18px">세 겹으로 지킵니다</h3><p class="how">낙뇌·돌입 전류 보호, 발진기 과전류 차단, 진동자 과전류 차단. 이상이 생기면 타기 전에 먼저 끊습니다.</p></article>
+      <article class="card"><h3 style="font-size:18px">세척물에 맞춥니다</h3><p class="how">유리잔은 약하게, 불판은 강하게 — 초음파 세기를 미세 조절합니다. 자동·수동 모두 가능.</p></article>
+    </div>
+
+    <p class="closing">여섯 가지 특허 기술이 따로 있는 게 아니라, 한 세척조 안에서 같이 돌아갑니다.</p>
+  </div>
+</section>
+
+<!-- 블록 C -->
+<section class="cross" id="cross">
+  <div class="wrap">
+    <div class="sec-head"><h2>한 통 안에서 맞물려 도는 하나의 시스템</h2><p>번호에 마우스를 올리거나 눌러 보세요. 해당 기술 카드가 위에서 표시됩니다.</p></div>
+    <div class="diagram">
+      <svg viewBox="0 0 900 460" role="img" aria-label="세척조 단면도">
+        <defs>
+          <linearGradient id="wat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--water-soft)"/><stop offset="1" stop-color="var(--water)" stop-opacity=".55"/></linearGradient>
+          <linearGradient id="heat" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E0492E" stop-opacity=".55"/><stop offset=".5" stop-color="#E0492E" stop-opacity=".12"/><stop offset="1" stop-color="#E0492E" stop-opacity=".55"/></linearGradient>
+        </defs>
+        <!-- 외장 파워박스 -->
+        <rect x="40" y="110" width="110" height="150" rx="10" fill="none" stroke="var(--ink-2)" stroke-width="2"/>
+        <text x="95" y="150" text-anchor="middle" fill="var(--ink-2)" font-size="14">파워박스</text>
+        <path d="M70 195 q10 -10 20 0 t20 0 t20 0" fill="none" stroke="var(--green)" stroke-width="2.5"/>
+        <text x="95" y="235" text-anchor="middle" fill="var(--green)" font-size="14" font-weight="700">33 kHz</text>
+        <path d="M150 180 H230 V380" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-dasharray="6 5"/>
+        <path d="M150 200 H270 V130 H690" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-dasharray="6 5"/>
+        <!-- 적외선 히터: ⑥ 아래 히터 램프 + 열선 -->
+        <rect x="370" y="98" width="200" height="14" rx="7" fill="#E0492E"/>
+        <rect x="360" y="92" width="220" height="26" rx="13" fill="#E0492E" opacity=".25"/>
+        <g class="heatw" stroke="#E0492E" stroke-width="2.5" fill="none" opacity=".8"><path d="M390 122 q-6 10 0 20 t0 20"/><path d="M420 122 q-6 10 0 20 t0 20"/><path d="M450 122 q-6 10 0 20 t0 20"/><path d="M480 122 q-6 10 0 20 t0 20"/><path d="M510 122 q-6 10 0 20 t0 20"/><path d="M540 122 q-6 10 0 20 t0 20"/></g>
+        <text x="470" y="186" text-anchor="middle" fill="#E0492E" font-size="13" font-weight="700">적외선 히터</text>
+        <text x="880" y="450" text-anchor="end" fill="var(--ink-2)" font-size="12">(이미지 동작입니다)</text>
+        <!-- 세척조 -->
+        <rect x="250" y="100" width="490" height="284" rx="8" fill="none" stroke="var(--fg)" stroke-width="3"/>
+        <rect x="253" y="150" width="484" height="231" fill="url(#wat)"/>
+        <line x1="253" y1="150" x2="737" y2="150" stroke="var(--water)" stroke-width="2"/>
+        <text x="258" y="142" fill="var(--ink-2)" font-size="13">수위 80%</text>
+        <!-- 뒷면 진동부 (오른쪽 벽 = 뒷면) — 바닥처럼 일정 간격, 세로 -->
+        <g fill="var(--green)"><rect x="706" y="176" width="22" height="46" rx="5"/><rect x="706" y="240" width="22" height="46" rx="5"/><rect x="706" y="304" width="22" height="46" rx="5"/></g>
+        <text x="717" y="372" text-anchor="middle" fill="var(--ink-2)" font-size="12">뒷면</text>
+        <!-- 바닥 진동자 (상징 4~5개) -->
+        <g fill="var(--green)"><rect x="300" y="384" width="44" height="22" rx="4"/><rect x="380" y="384" width="44" height="22" rx="4"/><rect x="460" y="384" width="44" height="22" rx="4"/><rect x="540" y="384" width="44" height="22" rx="4"/></g>
+        <path d="M344 420 q0 10 10 10 h16 q10 0 10 -10" fill="none" stroke="var(--ink-2)" stroke-width="1.5"/>
+        <text x="362" y="446" text-anchor="middle" fill="var(--ink-2)" font-size="13">간격 = 파장 기준 계산</text>
+        <!-- 파동: 위로 -->
+        <g class="w-up" stroke="var(--water)" stroke-width="2" fill="none">
+          <path d="M300 360 q11 -8 22 0 t22 0"/><path d="M380 360 q11 -8 22 0 t22 0"/><path d="M460 360 q11 -8 22 0 t22 0"/><path d="M540 360 q11 -8 22 0 t22 0"/>
+          <path d="M300 320 q11 -8 22 0 t22 0"/><path d="M380 320 q11 -8 22 0 t22 0"/><path d="M460 320 q11 -8 22 0 t22 0"/><path d="M540 320 q11 -8 22 0 t22 0"/>
+        </g>
+        <!-- 파동: 뒷면에서 앞으로 -->
+        <g class="w-fw" stroke="var(--water)" stroke-width="2" fill="none">
+          <path d="M690 184 q-8 11 0 22 t0 22"/><path d="M690 248 q-8 11 0 22 t0 22"/><path d="M690 312 q-8 11 0 22 t0 22"/><path d="M650 184 q-8 11 0 22 t0 22"/><path d="M650 248 q-8 11 0 22 t0 22"/><path d="M650 312 q-8 11 0 22 t0 22"/>
+        </g>
+        <!-- 버블 산기관 4구역 -->
+        <g fill="var(--water)" opacity=".8">
+          <circle cx="268" cy="200" r="4"/><circle cx="268" cy="230" r="4"/><circle cx="268" cy="260" r="4"/>
+          <circle cx="268" cy="300" r="4"/><circle cx="268" cy="330" r="4"/><circle cx="268" cy="360" r="4"/>
+        </g>
+        <g fill="var(--ink-2)" font-size="12"><text x="282" y="204">1구역</text><text x="282" y="304">2구역</text><text x="640" y="170">3구역</text><text x="640" y="372">4구역</text></g>
+        <!-- 번호 핫스팟 -->
+        <g class="hot" data-t="1" tabindex="0"><circle cx="95" cy="90" r="16"/><text x="95" y="96" text-anchor="middle">1</text></g>
+        <g class="hot" data-t="2" tabindex="0" style="display:none"><circle cx="500" cy="300" r="16"/><text x="500" y="306" text-anchor="middle">2</text></g>
+        <g class="hot dim" data-t="3" tabindex="0"><circle cx="420" cy="430" r="16"/><text x="420" y="436" text-anchor="middle">3</text></g>
+        <g class="hot" data-t="4" tabindex="0"><circle cx="95" cy="280" r="16"/><text x="95" y="286" text-anchor="middle">4</text></g>
+        <g class="hot" data-t="5" tabindex="0"><circle cx="268" cy="170" r="16"/><text x="268" y="176" text-anchor="middle">5</text></g>
+        <g class="hot heat" data-t="6" tabindex="0"><circle cx="470" cy="68" r="20"/><text x="470" y="75" text-anchor="middle" font-size="18">6</text></g>
+        <g class="hot" data-t="2" tabindex="0"><circle cx="780" cy="240" r="16"/><text x="780" y="246" text-anchor="middle">2</text></g>
+      </svg>
+    </div>
+    <p class="pick" id="pick">번호를 올려 보세요.</p>
+    <p class="cap">따로 있는 여섯 기술이 아니라, 한 통 안에서 맞물려 도는 하나의 시스템입니다. 그림은 구조를 보여주는 상징도이며 실제 진동자 수·위치·치수와 다릅니다.</p>
+  </div>
+</section>
+
+<!-- 듀얼 vs 포디움 -->
+<section id="quad">
+  <div class="wrap">
+    <div class="sec-head"><h2>2면 듀얼, 4면 포디움</h2><p>같은 여섯 가지 기술 위에, 초음파가 올라오는 면의 수만 다릅니다. 식당 규모로 고르세요.</p></div>
+    <div class="cards two">
+      <article class="card"><span class="no">2</span><h3>듀얼 히팅 360° — 바닥 + 뒷면</h3>
+        <p class="how">바닥에서 위로, 뒷면에서 앞으로. 두 파동이 직각으로 만나 바닥만 있는 세척기의 사각지대를 없애고, 일반 식당의 식기·유리잔·조리기구를 한 번에 닦습니다.</p>
+        <p class="get">고깃집 · 한식 · 분식 · 카페 — 일반 식당의 기본</p>
+        <p class="num">가로 700~2000 · 수조 114~442 L · 전국 6,000곳 검증</p></article>
+      <article class="card" style="border-color:#2F5A49;background:linear-gradient(160deg,#0B1F18,#0C0C0C)"><span class="no">4</span><h3>포디움 4D — 바닥 + 네 벽면</h3>
+        <p class="how">바닥과 네 벽면 사방에서 동시에 올라옵니다. 식판 수백 장, 대형 조리기구, 기름때 불판이 한꺼번에 나오는 곳에서 담갔다 빼는 속도로 회전시킵니다. 세계 최초 4면 초음파.</p>
+        <p class="get">급식소 · 학교 · 사내식당 · 휴게소 · 호텔 · 공사현장 — 대형 사업장</p>
+        <p class="num">가로 900~2000 · 수조 145~442 L · 업장에 맞춰 주문제작</p></article>
+    </div>
+    <p class="closing" style="font-size:17px;color:var(--ink-2)">두 제품 모두 듀얼 발진기 · 공진 추적 · 웨이브 버블 · 적외선 히팅은 같습니다. <a href="cleanidea_products.html" style="color:var(--green)">사양표 보기 →</a></p>
+  </div>
+</section>
+
+<!-- 블록 D -->
+<section id="power">
+  <div class="wrap">
+    <div class="sec-head"><h2>사이즈별 세척력</h2><p>세척조가 클수록 물 1리터당 초음파 세기도 올라갑니다. 큰 기계가 더 세다는 뜻입니다.</p></div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+
+    <div class="chart"><h3>물 1리터당 초음파 세기 (W)</h3><svg id="chart" viewBox="0 0 900 300"></svg></div>
+
+    <div class="tbl-wrap"><table class="tbl" id="tbl">
+      <thead><tr>
+        <th>세척조 가로</th>
+        <th>물 용량</th>
+        <th>초음파 세기<span class="tip" tabindex="0">?<span>세척조 물 1리터당 초음파 출력. 식당 식기 기준 5~10W가 표준입니다.</span></span><small>물 1리터당</small></th>
+        <th>강한 세척 구역<span class="tip" tabindex="0">?<span>세척조 바닥 면적 중 초음파가 세게 닿는 비율.</span></span><small>바닥 면적 기준</small></th>
+        <th>버블 세기<span class="tip" tabindex="0">?<span>1분에 물 1리터당 넣는 공기량.</span></span><small>물 1리터당 공기</small></th>
+        <th>종합<small>900 기준 = 100</small></th>
+      </tr></thead>
+      <tbody></tbody>
+    </table></div>
+
+    <div class="mcard" id="mcard"></div>
+
+    <p class="note">초음파 세기·버블 세기는 사양 계산값입니다. 강한 세척 구역은 전 제품 출고 시 호일 침식 검사로 확인해 실측값으로 올립니다.</p>
+  </div>
+</section>
+
+<!-- 블록 E (자리) -->
+<section class="cross" id="foil">
+  <div class="wrap">
+    <div class="sec-head"><h2>출고 전 호일 검사</h2><p>모든 세척기는 출고 전에 알루미늄 호일을 넣고 돌려 초음파가 고르게 닿는지 확인합니다. 검사 사진을 그대로 올립니다.</p></div>
+    <div class="gallery">
+      <figure>호일 검사 사진 1<br>(업로드 예정)</figure><figure>호일 검사 사진 2<br>(업로드 예정)</figure><figure>호일 검사 사진 3<br>(업로드 예정)</figure><figure>호일 검사 영상<br>(업로드 예정)</figure>
+    </div>
+  </div>
+</section>
+
+<!-- 블록 F -->
+<section class="cta" id="cta">
+  <div class="wrap">
+    <h2>내 주방에 맞는 세척기 성적표 받기</h2>
+    <p>업종과 식기 양, 주방 치수를 넣으면 추천 사이즈와 세척력 수치가 한 장으로 나옵니다. 주문하신 세척기에는 같은 양식에 출고 검사 실측값을 채워 QR로 붙여 보내드립니다.</p>
+    <a class="btn" href="#">성적표 만들기</a><a class="btn ghost" href="#">3개월 단기임대 신청</a>
+    <div class="steps"><span>업종</span><span>식기량</span><span>주방 치수</span><span>성적표</span><span>옵션</span><span>견적·카톡</span></div>
+    <div class="report"><b>성적표 한 장에 들어가는 것</b><br>추천 사이즈 · 초음파 세기 · 강한 세척 구역 · 버블 세기 ★ · 표준 버블/강력 버블 비교 · 적외선 히팅 수온 유지</div>
+  </div>
+</section>
+
+<footer><div class="wrap">주식회사 클린아이디어그룹 · 대표전화 1800-7182 · 경기도 김포시 구래동 디원시티 시그니처 A동 441호</div></footer>
+
+<script>
+// 사이즈별 데이터 — 커버율·종합은 호일 실측 후 기입 (null = "실측 후")
+const SIZES=[
+ {w:700,l:120,wl:7.0,cov:null,bub:0.30,idx:null,seat:'실측 후 기입'},
+ {w:800,l:137,wl:7.9,cov:null,bub:0.26,idx:null,seat:'실측 후 기입'},
+ {w:900,l:154,wl:8.2,cov:null,bub:0.35,idx:null,seat:'실측 후 기입'},
+ {w:1000,l:171,wl:8.4,cov:null,bub:0.32,idx:null,seat:'실측 후 기입'},
+ {w:1200,l:206,wl:8.7,cov:null,bub:0.26,idx:null,seat:'실측 후 기입'},
+ {w:1500,l:257,wl:9.3,cov:null,bub:0.28,idx:null,seat:'실측 후 기입'},
+ {w:1700,l:291,wl:9.3,cov:null,bub:0.31,idx:null,seat:'실측 후 기입'},
+ {w:2000,l:342,wl:9.3,cov:null,bub:0.32,idx:null,seat:'실측 후 기입'}
+];
+const stars=b=>'★'.repeat(b>=0.36?5:b>=0.32?4:b>=0.28?3:b>=0.24?2:1);
+const later=v=>v==null?'<td class="later">실측 후</td>':null;
+let sel=900;
+function render(){
+  const tabs=document.getElementById('tabs');
+  tabs.innerHTML=SIZES.map(s=>`<button role="tab" aria-selected="${s.w===sel}" data-w="${s.w}">${s.w}</button>`).join('');
+  document.querySelector('#tbl tbody').innerHTML=SIZES.map(s=>`<tr class="${s.w===sel?'sel':''}"><td>${s.w} mm</td><td>${s.l} L</td><td>${s.wl.toFixed(1)} W</td>${later(s.cov)||`<td>${s.cov}%</td>`}<td>${s.bub.toFixed(2)} L/분 <span style="color:var(--heat)">${stars(s.bub)}</span></td>${later(s.idx)||`<td>${s.idx}</td>`}</tr>`).join('');
+  const s=SIZES.find(x=>x.w===sel);
+  document.getElementById('mcard').innerHTML=`<h3>세척조 가로 ${s.w} mm</h3><div class="big" style="margin-top:14px"><div><b>${s.l} L</b><span>물 용량</span></div><div><b>${s.wl.toFixed(1)} W</b><span>물 1리터당 초음파 세기</span></div><div><b>${s.cov==null?'실측 후':s.cov+'%'}</b><span>강한 세척 구역</span></div><div><b style="color:var(--heat)">${stars(s.bub)}</b><span>버블 세기 ${s.bub.toFixed(2)} L/분</span></div></div><p class="seat">이 사이즈에 맞는 식당 규모: ${s.seat}</p>`;
+  // chart
+  const W=900,H=300,pl=70,pr=40,pt=20,pb=40,n=SIZES.length,gap=14,bw=(W-pl-pr-gap*(n-1))/n,max=10;
+  let g='';
+  [5,7.5,10].forEach(v=>{const y=pt+(H-pt-pb)*(1-v/max);g+=`<line x1="${pl}" x2="${W-pr}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="${pl-10}" y="${y+4}" text-anchor="end">${v} W</text>`;});
+  SIZES.forEach((s,i)=>{const x=pl+i*(bw+gap),h=(H-pt-pb)*s.wl/max,y=H-pb-h;
+    g+=`<rect class="bar ${s.w===sel?'sel':''}" x="${x}" y="${y}" width="${bw}" height="${h}" rx="6" data-w="${s.w}"/><text class="v" x="${x+bw/2}" y="${y-8}" text-anchor="middle">${s.wl.toFixed(1)}</text><text x="${x+bw/2}" y="${H-pb+22}" text-anchor="middle">${s.w}</text>`;});
+  document.getElementById('chart').innerHTML=g;
+}
+render();
+document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){sel=+b.dataset.w;render();}});
+document.getElementById('chart').addEventListener('click',e=>{const r=e.target.closest('rect.bar');if(r){sel=+r.dataset.w;render();}});
+
+// 단면도 번호 ↔ 카드 연결
+const names={1:'듀얼 발진기',2:'듀얼 진동부',3:'파장 기반 배열 (출원 후 공개)',4:'33 kHz 공진 추적',5:'웨이브 버블 순서 운전',6:'적외선 히팅'};
+const pick=document.getElementById('pick');
+function lit(t,on){document.querySelectorAll(`.card[data-t="${t}"]`).forEach(c=>c.classList.toggle('lit',on));document.querySelectorAll(`.hot[data-t="${t}"]`).forEach(h=>h.classList.toggle('on',on));if(on)pick.textContent=`${t}번 — ${names[t]}`;}
+document.querySelectorAll('.hot').forEach(h=>{const t=h.dataset.t;
+  h.addEventListener('mouseenter',()=>lit(t,true));h.addEventListener('mouseleave',()=>lit(t,false));
+  h.addEventListener('focus',()=>lit(t,true));h.addEventListener('blur',()=>lit(t,false));
+  h.addEventListener('click',()=>{document.querySelectorAll('.card.lit').forEach(c=>c.classList.remove('lit'));lit(t,true);document.querySelector(`.card[data-t="${t}"]`).scrollIntoView({behavior:'smooth',block:'center'});});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>클린아이디어 — 사용법 · 자주하는 질문 · 보증</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--card:#0C0C0C;--line:#262626;--fg:#F4F4F4;--mute:#A3A3A3;--mute2:#6B6B6B;--mint:#8FCDB4;--warn:#E0A855;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(110px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans KR",system-ui,sans-serif;font-size:17px;line-height:1.75;word-break:keep-all}
+h1,h2,h3{margin:0;line-height:1.2;letter-spacing:-.02em}
+h1{font-family:Inter,"Noto Sans KR",sans-serif;font-size:clamp(40px,6vw,88px);font-weight:900;letter-spacing:-.04em}
+h2{font-size:clamp(26px,3.4vw,42px);font-weight:900}h3{font-size:19px;font-weight:700}
+p{margin:0}a{color:inherit}
+.wrap{max-width:1500px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}.narrow{max-width:1100px;margin:0 auto}
+.eyebrow{font-size:12.5px;letter-spacing:.12em;font-weight:700;color:#CFCFCF;display:flex;align-items:center;gap:10px;margin-bottom:22px}.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#fff;z-index:40}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:#fff;color:#111;border-bottom:1px solid #E6E6E6}
+.nav .wrap{display:flex;align-items:center;height:100px;gap:40px}
+.logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:#111}
+.logo .mark{width:48px;height:48px;border-radius:50%;border:2px solid #111;display:grid;place-items:center;font-family:Inter,sans-serif;font-weight:900;font-size:15px}
+.logo b{display:block;font-family:Inter,sans-serif;font-size:19px;font-weight:900;letter-spacing:.06em;line-height:1.2}.logo small{display:block;font-size:10.5px;letter-spacing:.16em;font-weight:700;color:#333}
+.menu{display:flex;gap:34px;list-style:none;margin:0 0 0 auto;padding:0;font-family:Inter,"Noto Sans KR",sans-serif;font-size:13.5px;font-weight:700;letter-spacing:.08em}
+.menu a{text-decoration:none;color:#111;padding-bottom:6px;border-bottom:2px solid transparent}.menu a:hover,.menu a[aria-current]{border-color:#111}
+.nav .cta{border:1px solid #111;color:#111;text-decoration:none;font-weight:700;font-size:14px;padding:14px 22px;display:flex;gap:26px;align-items:center;white-space:nowrap}
+.burger{display:none;margin-left:auto;border:1px solid #111;background:none;padding:8px 12px;font:inherit;color:#111}
+@media (max-width:1100px){.menu,.nav .cta{display:none}.burger{display:block}.nav .wrap{height:76px}}
+.drawer{display:none;background:#fff;color:#111;border-top:1px solid #E6E6E6}.drawer.open{display:block}.drawer a{display:block;padding:15px clamp(20px,4vw,56px);text-decoration:none;color:#111;border-bottom:1px solid #EEE;font-weight:700;font-size:14px}
+.hero{padding:clamp(60px,9vw,120px) 0 40px}.hero h1 span{display:block;color:#8A8A8A}.hero .sub{margin-top:26px;color:var(--mute);max-width:700px;font-size:18px}
+.jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}.jump a{text-decoration:none;border:1px solid #333;border-radius:999px;padding:10px 18px;font-size:14.5px;font-weight:700;color:#E6E6E6}.jump a:hover{border-color:#fff}
+section{padding:clamp(56px,7vw,100px) 0;border-top:1px solid #1C1C1C}
+.sub-h{color:var(--mute);margin:12px 0 36px;max-width:720px}
+/* 번호 딱지 단계 */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.st{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:26px 24px;display:flex;flex-direction:column;gap:10px;position:relative}
+.st .n{width:40px;height:40px;border-radius:50%;background:var(--mint);color:#000;font-family:Inter,sans-serif;font-weight:900;font-size:17px;display:grid;place-items:center}
+.st h3{color:#fff}.st p{color:var(--mute);font-size:15.5px}.st .tip{font-size:14px;color:var(--warn)}
+@media (max-width:1000px){.steps,.steps.c4{grid-template-columns:1fr 1fr}}@media (max-width:560px){.steps,.steps.c4,.steps.c2{grid-template-columns:1fr}}
+.steps.c2{grid-template-columns:1fr 1fr}.steps.c4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1000px){.steps.c4{grid-template-columns:1fr 1fr}}@media (max-width:560px){.steps.c2,.steps.c4{grid-template-columns:1fr}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media (max-width:860px){.two{grid-template-columns:1fr}}
+.box{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:26px 24px}
+.box h3{margin-bottom:12px;color:#fff}.box ul{margin:0;padding:0;list-style:none}.box li{padding:7px 0 7px 22px;position:relative;color:#CFCFCF;font-size:15.5px;border-bottom:1px solid #1A1A1A}.box li:last-child{border:0}.box li::before{content:"·";position:absolute;left:6px;color:var(--mint);font-weight:900}
+.box.warn{border-color:#5A3F10}.box.warn li::before{content:"!";color:var(--warn)}
+/* FAQ */
+details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin-bottom:10px}
+summary{padding:18px 22px;cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}summary::after{content:"+";color:var(--mute2);font-family:Inter,sans-serif;font-weight:900}details[open] summary::after{content:"–"}
+details .a{padding:0 22px 20px;color:#CFCFCF;font-size:15.5px}details .a li{margin:4px 0}
+/* 표 */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:16px}table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th,td{padding:13px 16px;border-bottom:1px solid #1E1E1E;text-align:left;vertical-align:top}thead th{background:#121212;color:#fff;font-weight:700}tbody th{color:var(--mute);font-weight:500;background:#0E0E0E;white-space:nowrap}tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+td.ok{color:var(--mint);font-weight:700}td.no{color:var(--mute2)}
+.note{margin-top:12px;color:var(--mute2);font-size:13.5px}
+.cta{background:#0A0A0A}.cta .in{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}.cta h2{font-family:Inter,"Noto Sans KR",sans-serif;letter-spacing:-.03em}.cta p{color:var(--mute);margin-top:16px}
+.acts{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;padding:15px 26px}.btn.w{background:#fff;color:#000}.btn.o{border:1px solid #4A4A4A;color:#fff}
+@media (max-width:860px){.cta .in{grid-template-columns:1fr}}
+footer{padding:40px 0 32px;border-top:1px solid #1C1C1C;font-size:13.5px;color:var(--mute2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* === 라이트 프리미엄 톤 통일 (10/28) === */
+:root{--bg:#F6F5F1;--card:#FFFFFF;--card2:#F0EFEA;--line:rgba(18,20,18,.1);--fg:#121412;--mute:#6B6E6A;--mute2:#A3A6A1;--mint:#0F3D2E;--teal:#2E8C8A;--warn:#B8955A;color-scheme:light}
+body{background:var(--bg);color:var(--fg)}
+.nav{background:rgba(246,245,241,.92)!important;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)!important}
+.logo .mark{background:#0F3D2E;color:#fff;border:0!important}
+.logo small{color:#6B6E6A!important}
+.nav .cta{background:#0F3D2E;color:#fff!important;border-color:#0F3D2E!important;border-radius:2px}
+.drawer{background:var(--bg)!important}
+.eyebrow{color:#0F3D2E!important;letter-spacing:.22em;font-family:Inter,sans-serif;font-size:11.5px;text-transform:uppercase}.eyebrow::before{background:#0F3D2E!important;width:28px;height:1px;border-radius:0!important}
+h1{color:var(--fg)}.hero h1 span{color:var(--mute2)!important}.hero .sub{color:var(--mute)!important}
+.jump a{border-color:rgba(18,20,18,.25)!important;color:var(--fg)!important;background:#fff}
+.btn.w{background:#0F3D2E!important;color:#fff!important;border-radius:2px}.btn.o{border-color:rgba(18,20,18,.35)!important;color:var(--fg)!important;border-radius:2px}
+thead th{background:#0F3D2E!important;color:#fff!important}tbody th{background:#F0EFEA!important;color:#3A3D3A!important}
+td b,td.ok{color:#0F3D2E!important}td.no{color:var(--mute2)!important}
+th,td{border-bottom:1px solid var(--line)!important}
+.tw,.box,.c,.st,.rv,.card,details,.chart,.diagram,.mcard,.setline,.pcard{background:#fff!important;border-color:var(--line)!important;box-shadow:0 1px 0 rgba(18,20,18,.03)}
+.c:hover,.ac:hover,.st:hover{box-shadow:0 24px 50px rgba(15,61,46,.1)}
+.c h3,.st h3,.box h3,.card h3{color:var(--fg)!important}
+.c .tag,.st .n,.c .foot,.rv b,.rvw b,.tags span{color:#0F3D2E!important}
+.st .n{background:#0F3D2E!important;color:#fff!important}
+.box.warn{border-color:#E0C9A0!important;background:#FBF6EC!important}.box.warn li::before{color:#B8955A!important}
+.box li{color:#3A3D3A!important;border-color:var(--line)!important}.box li::before{color:#0F3D2E!important}
+summary{color:var(--fg)}details .a{color:#3A3D3A!important}summary::after{color:var(--mute2)!important}
+.tags span{background:#F0EFEA!important;border-color:transparent!important}
+.pic{background:radial-gradient(ellipse at 50% 100%,rgba(46,140,138,.14),transparent 65%),#fff!important;border:1px solid var(--line);border-radius:6px!important}.pic img{mix-blend-mode:normal!important}.pic.dark{background:#fff!important}
+.c.pat{background:#0F3D2E!important;color:#fff!important}.c.pat h3,.c.pat p,.c.pat b{color:#fff!important}.c.pat .tag{color:#9FD8BF!important}
+.band div{background:#fff!important;border-color:var(--line)!important}.band b{color:var(--fg)}
+.tl{border-color:rgba(18,20,18,.15)!important}.tl li::before{background:var(--bg)!important;border-color:#0F3D2E!important}.tl li.now::before{background:#0F3D2E!important}.tl p{color:#3A3D3A!important}.tl .y{color:var(--fg)}
+.intro .txt p{color:#3A3D3A!important}
+.loc .map{background:#F0EFEA!important}.loc dd{color:var(--fg)!important}.loc dd a{color:#0F3D2E!important;border-color:rgba(15,61,46,.4)!important}
+.cta{background:radial-gradient(900px 500px at 20% 50%,rgba(46,140,138,.14),transparent 60%),#fff!important}.cta h2{color:var(--fg)!important}
+.gal figure{background:#fff!important;border-color:rgba(18,20,18,.25)!important}
+footer{color:var(--mute2)!important;border-color:var(--line)!important;background:var(--bg)}
+.note,.sub-h{color:var(--mute)!important}
+.fixed,.lockline{background:#F0EFEA!important;color:#3A3D3A!important;border-color:var(--line)!important}.fixed b{color:var(--fg)!important}
+.panel{background:#fff!important;border-color:var(--line)!important}.panel .top,.grp{border-color:var(--line)!important}.row label{color:#3A3D3A!important}
+select,input[type=number],.unit,.seg{background:#F0EFEA!important;color:var(--fg)!important;border-color:var(--line)!important}.seg button{color:#6B6E6A!important}.seg button[aria-pressed="true"]{background:#0F3D2E!important;color:#fff!important}
+.stage{background:#fff!important;border-color:var(--line)!important}.sum div{background:#F0EFEA!important;border-color:transparent!important}.sum .lock b{color:#0F3D2E!important}
+textarea{background:#F0EFEA!important;color:var(--fg)!important;border-color:var(--line)!important}
+.foot small{color:var(--mute2)!important}
+.ph .num{color:#E3E1DA!important}.ph .desc{color:#3A3D3A!important}.ph li{color:var(--fg)}
+</style></head><body>
+<nav class="nav" aria-label="주 메뉴"><div class="wrap">
+<a class="logo" href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#121412"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3DC4F5"/><stop offset="1" stop-color="#0B7FD6"/></linearGradient></defs><circle cx="11" cy="7" r="6" fill="url(#lg)"/><rect x="5" y="16" width="12" height="22" rx="6" fill="url(#lg)"/><rect x="23" y="2" width="9" height="24" rx="4.5" fill="url(#lg)"/><circle cx="27.5" cy="33" r="4.5" fill="url(#lg)"/></svg><span><b style="display:block;font-family:'Noto Sans KR',sans-serif;font-size:21px;font-weight:900;letter-spacing:-.02em;line-height:1.1;color:#121412">클린아이디어</b><small style="display:block;font-family:Inter,sans-serif;font-size:8.5px;letter-spacing:.2em;font-weight:700;color:#6B6E6A">ULTRASONIC CLEANING SYSTEMS</small></span></a>
+<ul class="menu"><li><a href="cleanidea_products.html">제품</a></li><li><a href="cleanidea_tech.html">기술</a></li><li><a href="cleanidea_sites.html">설치사례</a></li><li><a href="cleanidea_custom.html">구매 및 견적문의</a></li><li><a href="cleanidea_company.html">회사소개</a></li></ul>
+<a class="cta" href="#" onclick="alert('챗봇 연동 전입니다.');return false">챗봇문의 <span>→</span></a>
+<button class="burger" aria-expanded="false" aria-controls="drawer" onclick="const d=document.getElementById('drawer');d.classList.toggle('open');this.setAttribute('aria-expanded',d.classList.contains('open'))">메뉴</button>
+</div><div class="drawer" id="drawer"><a href="cleanidea_products.html">제품</a><a href="cleanidea_tech.html">기술</a><a href="cleanidea_sites.html">설치사례</a><a href="cleanidea_custom.html">구매 및 견적문의</a><a href="cleanidea_company.html">회사소개</a></div></nav>
+
+<section class="hero" style="border:0" id="top"><div class="wrap"><div class="eyebrow">SUPPORT</div><h1>Seven steps,<span>clean dishes.</span></h1>
+<p class="sub">사용법은 번호 순서대로만 따라 하시면 됩니다. 막히면 아래 「서비스 요청 전 확인」을 먼저 보시고, 그래도 안 되면 카톡이나 1800-7182로 바로 접수하세요.</p>
+<div class="jump"><a href="#use">사용법 7단계</a><a href="#veg">야채·과일 세척</a><a href="#care">청소·손질</a><a href="#install">설치 전 확인</a><a href="#faq">자주하는 질문</a><a href="#check">서비스 요청 전 확인</a><a href="#warranty">보증</a></div></div></section>
+
+<section id="use"><div class="wrap"><div class="eyebrow">HOW TO USE</div><h2>식기 세척, 번호 순서대로</h2><p class="sub-h">① 부터 ⑦ 까지. 처음엔 이 순서만 지키시면 되고, 익숙해지면 ④·⑤·⑥만 반복입니다.</p>
+<div class="steps">
+<div class="st"><span class="n">1</span><h3>세척조에 온수를 채웁니다</h3><p>온수 공급은 40~60°C. 세척조 안쪽에 표시된 수위선까지 채우세요.</p><p class="tip">지하수는 스케일 필터를 꼭 거치세요.</p></div>
+<div class="st"><span class="n">2</span><h3>전원 버튼을 누릅니다</h3><p>조작부의 전원 버튼을 누르면 화면이 켜집니다. 수위가 부족하면 경고음이 울립니다.</p></div>
+<div class="st"><span class="n">3</span><h3>세제를 골고루 넣습니다</h3><p>초음파 전용 세제를 물에 골고루 풀어 주세요. 거품이 많이 나는 일반 세제는 쓰지 마세요.</p></div>
+<div class="st"><span class="n">4</span><h3>온도를 맞춥니다</h3><p>온수 히팅 버튼을 누르면 세척이 가장 잘 되는 온도로 데워집니다. 적외선 히팅이라 처음과 끝의 온도가 같습니다.</p></div>
+<div class="st"><span class="n">5</span><h3>이물질 털고 식기를 넣습니다</h3><p>그릇·접시는 세척이 필요한 면이 아래를 향하게. 식기끼리 포개지지 않게 넣으세요 — 포개지면 위쪽 식기는 덜 닦입니다.</p><p class="tip">타고 눌어붙은 건 애벌 세척 후에.</p></div>
+<div class="st"><span class="n">6</span><h3>세척/정지 버튼을 누릅니다</h3><p>화면에 'Power'가 뜨면 세척 중입니다. 강도·시간은 설정 버튼으로 바꿀 수 있습니다(아래 참고).</p></div>
+<div class="st"><span class="n">7</span><h3>깨끗한 물에 헹굽니다</h3><p>옆 싱크대에 깨끗한 물을 채워 헹구거나, 수압식 세척기로 헹굼·건조까지 끝냅니다.</p></div>
+</div>
+<div class="two" style="margin-top:16px">
+<div class="box"><h3>초음파 강도 바꾸기</h3><ul><li>세척/정지 버튼을 눌러 초음파를 켠 뒤, 화면 오른쪽 위에 'Power'가 보일 때 올림/내림 버튼으로 강도 조절</li><li>유리잔은 약하게, 불판은 강하게</li></ul></div>
+<div class="box"><h3>세척 시간 바꾸기</h3><ul><li>설정 버튼을 눌러 화면 오른쪽 위에 'Time'이 보일 때 올림/내림 버튼으로 시간 조절</li><li>버블 기능이 있는 모델은 버블 → 초음파 순서로 쓰면 초음파가 제 힘을 냅니다</li></ul></div>
+</div></div></section>
+
+<section id="veg"><div class="wrap"><div class="eyebrow">VEGETABLES · FRUIT</div><h2>야채·과일 세척</h2><p class="sub-h">같은 기계로 식재료도 씻습니다. 딱 두 가지만 다릅니다 — 냉수, 그리고 세제 없이.</p>
+<div class="steps c2">
+<div class="st"><span class="n">1</span><h3>냉수를 충분히 채우고 야채/과일 버튼</h3><p>전원이 켜진 상태에서 야채/과일 버튼을 누르면 초음파가 작동합니다. 세척조 안 이물질은 먼저 제거하세요.</p></div>
+<div class="st"><span class="n">2</span><h3>야채·과일을 넣고 세척</h3><p>물이 충분하지 않으면 주기적으로 경고음이 납니다.</p><p class="tip">야채·과일 세척 시 세제는 절대 넣지 마세요.</p></div>
+</div></div></section>
+
+<section id="care"><div class="wrap"><div class="eyebrow">CLEANING</div><h2>청소·손질</h2><p class="sub-h">하루 마감 때 5분이면 됩니다. 아래 네 가지만 지키면 10년 씁니다.</p>
+<div class="two">
+<div class="box"><h3>이렇게 하세요</h3><ul><li>제품 청소는 부드러운 천으로 자주 닦기 — 금속·나일론 수세미는 표면이 손상됩니다</li><li>내부 청소 때는 반드시 장갑 착용 (날카로운 부분)</li><li>세척 끝나면 물기를 충분히 제거 — 젖은 채로 두면 녹이 생깁니다</li><li>청소 후 내부에 도구·가연성 물건이 남았는지 확인</li></ul></div>
+<div class="box warn"><h3>절대 하지 마세요</h3><ul><li>신나·벤젠 등 인화성 물질로 청소 — 화재 원인</li><li>제품에 물 뿌리기 — 전자부품에 물이 들어가면 고장·화재·감전</li><li>조작부를 손 외의 도구로 누르기 — 오작동·파손, 배수 손잡이 밸브 누수</li><li>조작부·전원부에 물이 들어가게 하기</li></ul></div>
+</div></div></section>
+
+<section id="install"><div class="wrap"><div class="eyebrow">BEFORE INSTALL</div><h2>설치 전 확인</h2><p class="sub-h">설치는 클린아이디어가 지정한 시공자가 합니다. 사장님은 아래 네 가지만 준비해 주시면 됩니다.</p>
+<div class="steps c4">
+<div class="st"><span class="n">1</span><h3>물</h3><p>수돗물 권장(경도 30~60ppm). 지하수는 스케일 필터 필수 — 스케일이 끼면 적외선 히터가 멈출 수 있습니다.</p></div>
+<div class="st"><span class="n">2</span><h3>전기</h3><p>명판(제품 오른쪽 옆면)의 정격전압과 설치 장소 설비가 맞는지 확인. 전원차단 스위치는 제품 근처, 손 닿는 곳에.</p></div>
+<div class="st"><span class="n">3</span><h3>자리</h3><p>환기가 잘 되는 곳. 가연성 물건은 멀리. 바닥이 수평이 아니면 진동 소음·파손 원인. 들어오는 통로 폭 확보.</p></div>
+<div class="st"><span class="n">4</span><h3>배수</h3><p>배수관이 꼬이지 않게. 배수 호스 끝은 바닥에서 80mm 이상 높게 두지 않기. 호스 끝에 거름망 달지 않기 — 막힙니다.</p></div>
+</div>
+<p class="note">주방 치수를 넣으면 세척기·싱크·작업대 자리를 미리 그려 드립니다 → <a href="cleanidea_custom.html" style="color:var(--mint)">세척 라인 설계</a></p></div></section>
+
+<section id="faq"><div class="wrap narrow"><div class="eyebrow">FAQ</div><h2 style="margin-bottom:30px">자주하는 질문</h2>
+<details open><summary>설치하면 설거지를 아예 안 해도 되나요?</summary><div class="a">담갔다 꺼내는 것과 헹굼은 사람이 합니다. 문지르고 닦는 일이 없어지는 겁니다. 수압식 건조기까지 붙이면 헹굼·건조도 기계가 합니다.</div></details>
+<details><summary>어떤 사이즈를 골라야 하나요?</summary><div class="a">일반 식당은 듀얼 900~1200, 식판이 많이 나오는 급식·휴게소·학교는 포디움 1500~2000이 기본입니다. 정확한 건 <a href="cleanidea_custom.html" style="color:var(--mint)">주방 치수와 식기량을 넣고 성적표</a>를 받아 보세요.</div></details>
+<details><summary>불판·기름때도 되나요?</summary><div class="a">됩니다. 불판은 초음파 강도를 강하게 하고 불판 전용 세제를 쓰세요. 타고 눌어붙은 건 애벌 세척(불려 두기)을 한 번 하면 깨끗합니다.</div></details>
+<details><summary>유리잔에 흠집이 나지 않나요?</summary><div class="a">초음파는 물 속 미세 거품이 닦는 방식이라 표면을 긁지 않습니다. 유리잔은 강도를 약하게 두세요. 립스틱·커피 얼룩까지 빠집니다.</div></details>
+<details><summary>세제는 아무거나 써도 되나요?</summary><div class="a">초음파 전용 세제를 쓰세요. 일반 주방세제는 거품이 많이 나서 초음파를 막고, 세척력이 떨어집니다. 전용세제는 카톡에서 재주문됩니다.</div></details>
+<details><summary>전기요금·물값은 얼마나 드나요?</summary><div class="a">듀얼 900 기준 소비전력 1,600W. 물은 한 번 채워 하루 종일 쓰고, 적외선 히팅은 전력 변환 효율 95% 이상이라 열 손실이 적습니다. 정확한 수치는 사이즈별 사양표를 보세요.</div></details>
+<details><summary>다른 회사 초음파세척기도 고쳐 주나요?</summary><div class="a">네. 브랜드 상관없이 초음파세척기 A/S를 받습니다. 발진기 교체·진동부 보강·업그레이드도 가능합니다. 기본 출장·점검비 55,000원.</div></details>
+<details><summary>렌탈·단기임대도 되나요?</summary><div class="a">듀얼은 임대형(3년 납부 완료 후 반납/재계약 선택)과 구매형이 있고, 3개월 단기임대로 먼저 써 보실 수도 있습니다. 견적문의에서 신청하세요.</div></details>
+<details><summary>소음은 어느 정도인가요?</summary><div class="a">초음파 자체는 사람 귀에 거의 안 들리는 33 kHz이고, 들리는 소리는 물이 끓듯 "치이익" 하는 캐비테이션 소리입니다. 듀얼 발진기라 단일 방식보다 저소음이며, 홀에서는 들리지 않는 수준입니다.</div></details>
+<details><summary>직접 제조하나요?</summary><div class="a">네. 2016년부터 김포 공장에서 설계·조립·출고 검사까지 직접 합니다. 조달청 직접생산 확인(2019)을 받은 제조사입니다.</div></details>
+<details><summary>물에 손을 넣으면 전기가 오는 것 같아요. 왜 그런가요?</summary><div class="a">초음파 진동을 손끝이 "찌릿"하게 느끼는 것으로, 전기가 아닙니다. 다만 실제 누전이면 위험하니 접지가 된 콘센트를 쓰시고, 느낌이 강하거나 계속되면 전원을 끄고 A/S를 접수하세요.</div></details>
+<details><summary>몇 도의 물 온도가 가장 세척이 잘 되나요?</summary><div class="a">40~60°C입니다. 라이트·듀얼 모두 적외선 히팅으로 40°C 자동 맞춤이 되고, 기름때가 많으면 50~60°C로 올리세요. 너무 뜨거우면 캐비테이션이 약해집니다.</div></details>
+<details><summary>물은 얼마나 받아 놓고 써야 하나요?</summary><div class="a">세척조 안쪽 수위선까지(운전 수위 80%). 물이 부족하면 경고음이 나고, 넘치게 받으면 초음파가 분산됩니다. 하루 한 번 채우고 오염되면 교체하세요.</div></details>
+<details><summary>A/S 처리는 어느 정도 걸리나요?</summary><div class="a">카톡 접수 → 업무시간 내 연락 → 기사 배정 후 방문. 수도권은 보통 1~2일, 지방은 지역 기사 일정에 따라 안내드립니다. 부품은 5년 보유합니다.</div></details>
+<details><summary>A/S 접수는 어떻게 하나요?</summary><div class="a">카톡 사장님톡으로 24시간 접수, 연락은 업무시간에 드립니다. 전화 1800-7182. 증상을 보내 주시면 기사를 배정해 방문 시간을 카톡으로 알려드립니다.</div></details>
+</div></section>
+
+<section id="check"><div class="wrap narrow"><div class="eyebrow">BEFORE YOU CALL</div><h2>서비스 요청 전 확인</h2><p class="sub-h">아래 표에서 먼저 확인하면 열에 여섯은 바로 해결됩니다. 이외 이상이 있을 때는 전원코드를 뽑고 바로 접수하세요.</p>
+<div class="tw"><table><thead><tr><th style="width:200px">증상</th><th>확인할 것</th></tr></thead><tbody>
+<tr><th>작동이 안 될 때</th><td>· 전원코드가 정상적으로 연결되어 있나요?<br>· 세척조 안에 물이 충분히 채워져 있나요?</td></tr>
+<tr><th>세척이 잘 안 될 때</th><td>· 세척수를 장시간 반복 사용해 오염이 심하지 않나요?<br>· 세척조 안에 있는 식기가 서로 겹쳐 있지 않나요?<br>· 초음파 작동 시간이 끝나 초음파 기능이 멈추지 않았나요?<br>· 세척수 온도가 너무 떨어져 있지 않나요? (적외선 히터를 켜 보세요)<br>· 전용 세제를 세척수에 희석했나요?</td></tr>
+<tr><th>배수가 안 될 때</th><td>· 배수호스가 꺾여 있지 않나요?<br>· 배수호스 끝을 너무 높게(80mm 이상) 설치하지 않았나요?</td></tr>
+<tr><th>거품이 많이 날 때</th><td>· 전용 세제를 사용하고 계신가요?<br>· 일반 세제가 묻은 그릇을 넣지 않았나요?</td></tr>
+</tbody></table></div></div></section>
+
+<section id="warranty"><div class="wrap narrow"><div class="eyebrow">WARRANTY</div><h2>제품 보증</h2><p class="sub-h">품목별 소비자피해 보상 규정에 따라 보증합니다. 무상 A/S 3년 · 부품 보유 5년. 구입일자를 꼭 기재해 두세요.</p>
+<h3 style="margin-bottom:12px">무상 서비스 — 정상 사용 중 생긴 고장</h3>
+<div class="tw"><table><thead><tr><th>상황</th><th>보증기간 이내</th><th>보증기간 이후</th></tr></thead><tbody>
+<tr><th>구입 후 1개월 이내 중요한 수리가 필요할 때</th><td class="ok">제품 교환 또는 무상 수리</td><td class="no">해당 없음</td></tr>
+<tr><th>하자 발생 시</th><td class="ok">무상 수리</td><td>유상 수리</td></tr>
+</tbody></table></div>
+<h3 style="margin:28px 0 12px">유상 서비스 — 고객 과실·외부 요인</h3>
+<div class="box"><ul><li>천재지변(화재·염해·가스·풍수해 등)에 의한 고장</li><li>사용설명서 주의사항을 지키지 않아 생긴 고장 · 제품 이동·낙하·충격으로 인한 고장</li><li>당사가 지정하지 않은 소모품·부품을 써서 생긴 고장</li><li>가스·전기 등 외부 설비 문제로 인한 고장 · 재설치</li></ul></div>
+<p class="note">본 보증서는 대한민국 내에서만 사용되며 다시 발행하지 않습니다. 무상 A/S 3년 · 부품 보유 5년.</p></div></section>
+
+<section class="cta"><div class="wrap"><div class="in"><div><div class="eyebrow">A/S</div><h2>해결이 안 되면,<br>클린맨이 갑니다.</h2><p>카톡으로 증상을 보내 주시면 봇이 접수하고 클린맨을 배정해 방문 시간을 알려드립니다. 다른 회사 초음파세척기도 받습니다.</p>
+<div class="acts"><a class="btn w" href="#" onclick="alert('챗봇 연동 전입니다.');return false">카톡으로 A/S 접수</a><a class="btn o" href="tel:18007182">전화 1800-7182</a><a class="btn o" href="cleanidea_custom.html">세제 · 부품 주문</a></div></div>
+<div class="box" style="position:relative;overflow:hidden;padding-right:130px"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjQyMCIgdmlld0JveD0iMCAwIDMyMCA0MjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLtgbTrprDrp6giPgo8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImNiIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMkZBOEUwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMUY4RkQwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjwhLS0g64uk66asIC0tPgo8cmVjdCB4PSIxMjgiIHk9IjMwMCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjkwIiByeD0iNCIgZmlsbD0iIzFBNkZCNSIvPjxyZWN0IHg9IjE3MCIgeT0iMzAwIiB3aWR0aD0iMjIiIGhlaWdodD0iOTAiIHJ4PSI0IiBmaWxsPSIjMUE2RkI1Ii8+CjxyZWN0IHg9IjEyMiIgeT0iMzg0IiB3aWR0aD0iMzQiIGhlaWdodD0iMTgiIHJ4PSI2IiBmaWxsPSIjNEE0RjU1Ii8+PHJlY3QgeD0iMTY0IiB5PSIzODQiIHdpZHRoPSIzNCIgaGVpZ2h0PSIxOCIgcng9IjYiIGZpbGw9IiM0QTRGNTUiLz4KPCEtLSDrqrjthrUgLS0+CjxyZWN0IHg9IjEwMCIgeT0iOTAiIHdpZHRoPSIxMjAiIGhlaWdodD0iMjQwIiByeD0iNjAiIGZpbGw9InVybCgjY2IpIi8+CjxwYXRoIGQ9Ik0xMDAgMjcwIFExNjAgMzAwIDIyMCAyNzAgTDIyMCAyNzAgUTIyMCAzMzAgMTYwIDMzMCBRMTAwIDMzMCAxMDAgMjcwIFoiIGZpbGw9IiMxQTZGQjUiLz4KPCEtLSDtjJQgKOyZvOyqvSDtl4jrpqwsIOyYpOuluOyqvSDshpAg7Z2U65OmKSAtLT4KPHBhdGggZD0iTTEwNCAxOTAgcS01MCAyMCAtNDAgNzAgcTEwIDMwIDQwIDIwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyRkE4RTAiIHN0cm9rZS13aWR0aD0iMjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNMjE2IDE4MCBxNTAgLTEwIDQwIC03MCBxLTUgLTI1IC0zMCAtMjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJGQThFMCIgc3Ryb2tlLXdpZHRoPSIyMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxjaXJjbGUgY3g9Ijk2IiBjeT0iMjgyIiByPSIxNCIgZmlsbD0iI0Y0RTJDOCIvPjxjaXJjbGUgY3g9IjIyNiIgY3k9Ijg0IiByPSIxNCIgZmlsbD0iI0Y0RTJDOCIvPgo8IS0tIOyWvOq1tCAtLT4KPGVsbGlwc2UgY3g9IjE2MCIgY3k9IjEzMCIgcng9IjQ2IiByeT0iNDgiIGZpbGw9IiNGNEUyQzgiLz4KPGNpcmNsZSBjeD0iMTQ2IiBjeT0iMTI0IiByPSI0IiBmaWxsPSIjMkIyQjJCIi8+PGNpcmNsZSBjeD0iMTc0IiBjeT0iMTI0IiByPSI0IiBmaWxsPSIjMkIyQjJCIi8+CjxwYXRoIGQ9Ik0xMzggMTQyIHEyMiAyMiA0NCAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyQjJCMkIiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwhLS0g66qo7J6QIC0tPgo8cGF0aCBkPSJNMTEwIDkyIHE1MCAtNjAgMTAwIDAgWiIgZmlsbD0iIzJGQThFMCIvPjxyZWN0IHg9IjExMCIgeT0iODYiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTQiIHJ4PSI0IiBmaWxsPSIjMUY4RkQwIi8+PHBhdGggZD0iTTk2IDk4IEwyMTIgOTggTDIxNiAxMDYgTDEwMCAxMDYgWiIgZmlsbD0iIzlGRDhGMCIvPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNTAgNTYpIj48Y2lyY2xlIGN4PSI1IiBjeT0iMyIgcj0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjIiIHk9IjgiIHdpZHRoPSI2IiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjExIiB5PSIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIxMiIgcng9IjIiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxMyIgY3k9IjE4IiByPSIyLjIiIGZpbGw9IiNmZmYiLz48L2c+CjwhLS0g66qF7LCwIC0tPgo8cmVjdCB4PSIxNTAiIHk9IjE5NiIgd2lkdGg9IjQ2IiBoZWlnaHQ9IjE0IiByeD0iMyIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjk1Ii8+PHRleHQgeD0iMTczIiB5PSIyMDYiIGZvbnQtc2l6ZT0iOSIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1mYW1pbHk9IidOb3RvIFNhbnMgS1InLEFyaWFsLHNhbnMtc2VyaWYiIGZpbGw9IiMxRjhGRDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPu2BtOumsOunqDwvdGV4dD4KPHBhdGggZD0iTTE1MCAxNzggbDEwIDEwIGwxMCAtMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzlGRDhGMCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+" alt="클린맨" style="position:absolute;right:-8px;bottom:-12px;width:120px;height:auto"><h3>접수할 때 같이 보내 주세요</h3><ul><li>① 가게 이름 · 설치 주소</li><li>② 세척기 사이즈(가로) 또는 명판 사진</li><li>③ 증상 — 위 표의 증상 중 하나 + 언제부터</li><li>④ 화면·소리가 이상하면 짧은 영상</li></ul></div></div></div></section>
+
+<footer class="wrap"><span>주식회사 클린아이디어그룹 · 대표 조성호 · 사업자등록번호 331-87-01511</span><span>© 2026 CLEAN IDEA GROUP</span></footer>
+</body></html>
