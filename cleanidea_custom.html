@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>클린아이디어 — 세척기 주문제작</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--card:#0C0C0C;--card2:#141414;--line:#262626;--fg:#F4F4F4;--mute:#A3A3A3;--mute2:#6B6B6B;--mint:#8FCDB4;--teal:#2E8C8A;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.6;word-break:keep-all}
+h1,h2,h3{margin:0;line-height:1.25;letter-spacing:-.02em}
+h1{font-size:clamp(26px,3.4vw,40px);font-weight:900}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#000;z-index:40}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:#000;border-bottom:1px solid #1C1C1C}
+.nav .wrap{display:flex;align-items:center;height:72px;gap:32px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;text-decoration:none;font-size:22px;letter-spacing:-.02em}
+.logo i{width:28px;height:28px;border-radius:50%;background:conic-gradient(from 200deg,#8FCDB4,#2E8C8A,#0F3D2E,#8FCDB4);font-style:normal}
+.menu{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:16px;font-weight:500}
+.menu a{text-decoration:none;color:#E6E6E6}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;padding:12px 22px;border-radius:10px;white-space:nowrap;border:0;cursor:pointer;font-family:inherit}
+.btn.dark{background:#1C1C1C;color:#fff;border:1px solid #2E2E2E}
+.btn.light{background:#fff;color:#000}
+.nav .btn{margin-left:auto}
+@media (max-width:900px){.menu{display:none}}
+
+.head{padding:clamp(28px,4vw,48px) 0 20px}
+.head p{color:var(--mute);margin-top:10px;max-width:700px}
+
+/* 레이아웃: 왼쪽 미리보기 + 오른쪽 패널(프레이머식) */
+.lay{display:grid;grid-template-columns:1fr 400px;gap:20px;padding-bottom:60px}
+.stage{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:22px;position:sticky;top:calc(88px + env(safe-area-inset-top,0px));align-self:start}
+.stage svg{width:100%;height:auto;display:block}
+.stage .cap{color:var(--mute2);font-size:13px;margin-top:8px}
+.sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.sum div{background:var(--card2);border:1px solid #2A2A2A;border-radius:12px;padding:12px 14px}
+.sum b{display:block;font-size:22px;font-weight:900}
+.sum span{color:var(--mute);font-size:13px}
+.sum .lock b{font-size:15px;color:var(--mint)}
+
+.panel{border:1px solid var(--line);border-radius:20px;background:#0A0A0A;overflow:hidden}
+.panel .top{padding:18px 22px;border-bottom:1px solid #1E1E1E;display:flex;justify-content:space-between;align-items:center}
+.panel .top b{font-size:17px}
+.panel .top small{color:var(--mute2);font-size:12.5px}
+.grp{border-bottom:1px solid #1E1E1E;padding:16px 22px}
+.grp h3{font-size:16px;font-weight:700;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.grp h3 i{font-style:normal;color:var(--mute2);font-weight:400;font-size:18px}
+.row{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:10px;margin-bottom:10px}
+.row label{color:#CFCFCF;font-size:15px}
+.row label small{display:block;color:var(--mute2);font-size:12px;line-height:1.3}
+.ctl{display:flex;gap:6px}
+select,input[type=number]{width:100%;background:#1A1A1A;color:#fff;border:1px solid #2A2A2A;border-radius:10px;padding:11px 12px;font:inherit;font-size:15px;font-weight:700}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#999 50%),linear-gradient(135deg,#999 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.unit{display:grid;place-items:center;background:#1A1A1A;border:1px solid #2A2A2A;border-radius:10px;padding:0 12px;color:var(--mute);font-size:13px;white-space:nowrap}
+.seg{display:flex;background:#1A1A1A;border:1px solid #2A2A2A;border-radius:10px;padding:3px}
+.seg button{flex:1;background:none;border:0;color:#BDBDBD;padding:9px 6px;border-radius:8px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:#2E2E2E;color:#fff}
+.fixed{background:#121212;border:1px dashed #2A2A2A;border-radius:10px;padding:10px 12px;color:var(--mute);font-size:14px;display:flex;justify-content:space-between}
+.fixed b{color:#fff}
+.lockline{padding:12px 22px;background:#0F1A15;color:var(--mint);font-size:13.5px;border-bottom:1px solid #1E1E1E}
+.foot{padding:18px 22px;display:grid;gap:10px}
+.foot .btn{width:100%;text-align:center;font-size:16px;padding:15px}
+.foot small{color:var(--mute2);font-size:12.5px;text-align:center}
+textarea{width:100%;background:#111;color:#CFCFCF;border:1px solid #2A2A2A;border-radius:10px;padding:12px;font:inherit;font-size:13.5px;min-height:150px;resize:vertical}
+@media (max-width:980px){.lay{grid-template-columns:1fr}.stage{position:static}.sum{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:520px){.sum{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}}
+
+/* === 라이트 프리미엄 톤 통일 (10/28) === */
+:root{--bg:#F6F5F1;--card:#FFFFFF;--card2:#F0EFEA;--line:rgba(18,20,18,.1);--fg:#121412;--mute:#6B6E6A;--mute2:#A3A6A1;--mint:#0F3D2E;--teal:#2E8C8A;--warn:#B8955A;color-scheme:light}
+body{background:var(--bg);color:var(--fg)}
+.nav{background:rgba(246,245,241,.92)!important;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)!important}
+.logo .mark{background:#0F3D2E;color:#fff;border:0!important}
+.logo small{color:#6B6E6A!important}
+.nav .cta{background:#0F3D2E;color:#fff!important;border-color:#0F3D2E!important;border-radius:2px}
+.drawer{background:var(--bg)!important}
+.eyebrow{color:#0F3D2E!important;letter-spacing:.22em;font-family:Inter,sans-serif;font-size:11.5px;text-transform:uppercase}.eyebrow::before{background:#0F3D2E!important;width:28px;height:1px;border-radius:0!important}
+h1{color:var(--fg)}.hero h1 span{color:var(--mute2)!important}.hero .sub{color:var(--mute)!important}
+.jump a{border-color:rgba(18,20,18,.25)!important;color:var(--fg)!important;background:#fff}
+.btn.w{background:#0F3D2E!important;color:#fff!important;border-radius:2px}.btn.o{border-color:rgba(18,20,18,.35)!important;color:var(--fg)!important;border-radius:2px}
+thead th{background:#0F3D2E!important;color:#fff!important}tbody th{background:#F0EFEA!important;color:#3A3D3A!important}
+td b,td.ok{color:#0F3D2E!important}td.no{color:var(--mute2)!important}
+th,td{border-bottom:1px solid var(--line)!important}
+.tw,.box,.c,.st,.rv,.card,details,.chart,.diagram,.mcard,.setline,.pcard{background:#fff!important;border-color:var(--line)!important;box-shadow:0 1px 0 rgba(18,20,18,.03)}
+.c:hover,.ac:hover,.st:hover{box-shadow:0 24px 50px rgba(15,61,46,.1)}
+.c h3,.st h3,.box h3,.card h3{color:var(--fg)!important}
+.c .tag,.st .n,.c .foot,.rv b,.rvw b,.tags span{color:#0F3D2E!important}
+.st .n{background:#0F3D2E!important;color:#fff!important}
+.box.warn{border-color:#E0C9A0!important;background:#FBF6EC!important}.box.warn li::before{color:#B8955A!important}
+.box li{color:#3A3D3A!important;border-color:var(--line)!important}.box li::before{color:#0F3D2E!important}
+summary{color:var(--fg)}details .a{color:#3A3D3A!important}summary::after{color:var(--mute2)!important}
+.tags span{background:#F0EFEA!important;border-color:transparent!important}
+.pic{background:radial-gradient(ellipse at 50% 100%,rgba(46,140,138,.14),transparent 65%),#fff!important;border:1px solid var(--line);border-radius:6px!important}.pic img{mix-blend-mode:normal!important}.pic.dark{background:#fff!important}
+.c.pat{background:#0F3D2E!important;color:#fff!important}.c.pat h3,.c.pat p,.c.pat b{color:#fff!important}.c.pat .tag{color:#9FD8BF!important}
+.band div{background:#fff!important;border-color:var(--line)!important}.band b{color:var(--fg)}
+.tl{border-color:rgba(18,20,18,.15)!important}.tl li::before{background:var(--bg)!important;border-color:#0F3D2E!important}.tl li.now::before{background:#0F3D2E!important}.tl p{color:#3A3D3A!important}.tl .y{color:var(--fg)}
+.intro .txt p{color:#3A3D3A!important}
+.loc .map{background:#F0EFEA!important}.loc dd{color:var(--fg)!important}.loc dd a{color:#0F3D2E!important;border-color:rgba(15,61,46,.4)!important}
+.cta{background:radial-gradient(900px 500px at 20% 50%,rgba(46,140,138,.14),transparent 60%),#fff!important}.cta h2{color:var(--fg)!important}
+.gal figure{background:#fff!important;border-color:rgba(18,20,18,.25)!important}
+footer{color:var(--mute2)!important;border-color:var(--line)!important;background:var(--bg)}
+.note,.sub-h{color:var(--mute)!important}
+.fixed,.lockline{background:#F0EFEA!important;color:#3A3D3A!important;border-color:var(--line)!important}.fixed b{color:var(--fg)!important}
+.panel{background:#fff!important;border-color:var(--line)!important}.panel .top,.grp{border-color:var(--line)!important}.row label{color:#3A3D3A!important}
+select,input[type=number],.unit,.seg{background:#F0EFEA!important;color:var(--fg)!important;border-color:var(--line)!important}.seg button{color:#6B6E6A!important}.seg button[aria-pressed="true"]{background:#0F3D2E!important;color:#fff!important}
+.stage{background:#fff!important;border-color:var(--line)!important}.sum div{background:#F0EFEA!important;border-color:transparent!important}.sum .lock b{color:#0F3D2E!important}
+textarea{background:#F0EFEA!important;color:var(--fg)!important;border-color:var(--line)!important}
+.foot small{color:var(--mute2)!important}
+.ph .num{color:#E3E1DA!important}.ph .desc{color:#3A3D3A!important}.ph li{color:var(--fg)}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#121412"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3DC4F5"/><stop offset="1" stop-color="#0B7FD6"/></linearGradient></defs><circle cx="11" cy="7" r="6" fill="url(#lg)"/><rect x="5" y="16" width="12" height="22" rx="6" fill="url(#lg)"/><rect x="23" y="2" width="9" height="24" rx="4.5" fill="url(#lg)"/><circle cx="27.5" cy="33" r="4.5" fill="url(#lg)"/></svg><span><b style="display:block;font-family:'Noto Sans KR',sans-serif;font-size:21px;font-weight:900;letter-spacing:-.02em;line-height:1.1;color:#121412">클린아이디어</b><small style="display:block;font-family:Inter,sans-serif;font-size:8.5px;letter-spacing:.2em;font-weight:700;color:#6B6E6A">ULTRASONIC CLEANING SYSTEMS</small></span></a>
+  <ul class="menu"><li><a href="index.html#products">제품</a></li><li><a href="cleanidea_tech.html">기술</a></li><li><a href="cleanidea_sites.html">설치사례</a></li><li><a href="#" style="color:#fff;font-weight:700">구매 및 견적문의</a></li><li><a href="index.html#company">회사소개</a></li></ul>
+  <a class="btn dark" href="#" onclick="alert('챗봇 연동 전입니다.');return false">챗봇문의</a>
+</div></nav>
+
+<div class="wrap">
+  <div class="head"><h1>우리 가게 세척기, 직접 맞춰 보세요</h1><p>일반 식당은 2면 듀얼, 급식소·휴게소·학교·사내식당·공사현장 같은 대형 사업장은 4면 포디움(900~2000)을 고르세요. 오른쪽에서 크기와 옵션을 고르면 왼쪽 그림과 숫자가 바로 바뀝니다. 마음에 드는 구성이 나오면 맨 아래 「이 사양으로 견적 받기」를 누르세요.</p></div>
+
+  <div class="lay">
+    <!-- 미리보기 -->
+    <div class="stage">
+      <svg id="pv" viewBox="0 0 900 420" aria-label="세척 라인 미리보기"></svg>
+      <p class="cap">그림은 비율만 맞춘 개념도입니다. 진동자 위치·수량은 표시하지 않습니다.</p>
+      <div class="sum">
+        <div><b id="sL">—</b><span>물 용량 (리터)</span></div>
+        <div><b id="sWL">—</b><span>물 1리터당 초음파 (W)</span></div>
+        <div><b id="sLen">—</b><span>설치 총 길이 (mm)</span></div>
+        <div><b id="sVol">—</b><span>세척조 내부 가로×앞뒤×깊이</span></div>
+        <div class="lock"><b id="sFq">33 kHz · 자동 구성</b><span>진동자 · 발진기</span></div>
+        <div><b id="sSeat">실측 후</b><span>맞는 식당 규모</span></div>
+      </div>
+    </div>
+
+    <!-- 패널 -->
+    <div class="panel">
+      <div class="top"><b>주문제작 사양</b><small>바꾸면 바로 반영</small></div>
+
+      <div class="grp"><h3>크기 <i>mm</i></h3>
+        <div class="row"><label>가로<small>세척조 좌우 길이</small></label><div class="ctl"><select id="w"><option>700</option><option>800</option><option selected>900</option><option>1000</option><option>1200</option><option>1500</option><option>1700</option><option>2000</option></select><span class="unit">mm</span></div></div>
+        <div class="row"><label>앞뒤<small>외경 · 1700·2000은 850</small></label><div class="ctl"><select id="d"><option selected>750</option><option>850</option></select><span class="unit">mm</span></div></div>
+        <div class="row"><label>높이<small>바닥에서 상판</small></label><div class="fixed"><span>싱크대와 같은 높이</span><b>830</b></div></div>
+      </div>
+
+      <div class="grp"><h3>세척조</h3>
+        <div class="row"><label>수조 깊이<small>물 담기는 깊이</small></label><div class="seg" data-k="depth"><button aria-pressed="true" data-v="340">340 (표준)</button><button aria-pressed="false" data-v="400">400 (대형)</button></div></div>
+        <div class="row"><label>진동자 주파수<small>33: 식기·유리 섬세하게 / 28: 불판·대형 조리기구 강하게</small></label><div class="seg" data-k="freq"><button aria-pressed="true" data-v="33">33 kHz</button><button aria-pressed="false" data-v="28">28 kHz</button></div></div>
+        <div class="row"><label>운전 수위</label><div class="fixed"><span>전 사이즈 공통</span><b>80%</b></div></div>
+        <div class="row"><label>초음파 방향<small>포디움은 900부터</small></label><div class="seg" data-k="mode"><button aria-pressed="true" data-v="dual">2면 듀얼</button><button aria-pressed="false" data-v="quad">4면 포디움</button><button aria-pressed="false" data-v="floor">바닥만</button></div></div>
+      </div>
+
+      <div class="grp"><h3>운전</h3>
+        <div class="row"><label>물 데우기</label><div class="seg" data-k="heat"><button aria-pressed="true" data-v="ir">적외선 히팅</button><button aria-pressed="false" data-v="none">없음</button></div></div>
+        <div class="row"><label>버블</label><div class="seg" data-k="bub"><button aria-pressed="true" data-v="std">표준</button><button aria-pressed="false" data-v="pwr">강력</button></div></div>
+        <div class="row"><label>자동 운전</label><div class="fixed"><span>버블 → 초음파 순서</span><b>원버튼</b></div></div>
+      </div>
+
+      <div class="grp"><h3>설치 구성</h3>
+        <div class="row"><label>라인 형태</label><div class="seg" data-k="line"><button aria-pressed="false" data-v="c">컴팩트</button><button aria-pressed="true" data-v="s">표준</button><button aria-pressed="false" data-v="r">헹굼분리</button></div></div>
+        <div class="row"><label>싱크대 포함<small>앞단 애벌 싱크</small></label><div class="seg" data-k="sink"><button aria-pressed="true" data-v="y">포함</button><button aria-pressed="false" data-v="n">있음(제외)</button></div></div>
+        <div class="row" id="wtRow"><label>작업대 길이</label><div class="ctl"><input type="number" id="wt" value="600" step="50" min="300" max="1500"><span class="unit">mm</span></div></div>
+      </div>
+
+      <div class="lockline">진동자 수·배치와 발진기 설정은 사이즈에 맞춰 공장에서 정합니다 (특허 기술).</div>
+
+      <div class="foot">
+        <button class="btn light" onclick="makeQuote()">이 사양으로 견적 받기</button>
+        <textarea id="q" placeholder="버튼을 누르면 사양이 여기에 정리됩니다. 복사해서 카톡으로 보내 주세요." readonly></textarea>
+        <small>카톡 채널 추가 또는 사업자등록증 인증 후 성적표 PDF가 발급됩니다 (봇 연동 후).</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TBL={700:[114,7.0,0.30],800:[133,7.9,0.26],900:[152,8.2,0.35],1000:[171,8.4,0.32],1200:[209,8.7,0.26],1500:[266,9.3,0.28],1700:[364,9.3,0.31],2000:[442,9.3,0.32]};
+const PODL={900:145,1000:167,1200:210,1500:274,1700:364,2000:442};
+const st={depth:340,mode:'dual',heat:'ir',bub:'std',line:'s',sink:'y',freq:33};
+document.querySelectorAll('.seg').forEach(s=>s.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;s.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');st[s.dataset.k]=isNaN(b.dataset.v)?b.dataset.v:+b.dataset.v;render();}));
+['w','d','wt'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+function render(){
+  if(st.mode==='quad'&&+w.value<900){w.value='900';}
+  w.querySelector('option[value="700"], option:first-child').disabled=st.mode==='quad';w.options[1].disabled=st.mode==='quad';
+  if(+w.value>=1700){d.value='850';st.depth=400;}else{if(d.value==='850')d.value='750';if(st.depth===400)st.depth=340;}
+  document.querySelectorAll('.seg[data-k=depth] button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===st.depth));
+  const W=+w.value,D=+d.value,dep=st.depth;
+  const [L0,wl,bub]=TBL[W];
+  const L=st.mode==='quad'?PODL[W]:L0;
+  const iw=st.mode==='quad'?W-220:W-100,id=D-190;
+  const sinkL=st.sink==='y'?700:0,dry=st.line==='s'?670:0,rinse=st.line==='r'?700:0,wtL=st.line==='s'?+wt.value:0;
+  wtRow.style.display=st.line==='s'?'':'none';
+  sL.textContent=L;sWL.textContent=st.mode==='dual'&&st.freq===33?wl.toFixed(1):'실측 후';sFq.textContent=`${st.freq} kHz · 자동 구성`;
+  sLen.textContent=(sinkL+W+dry+rinse+wtL).toLocaleString();sVol.textContent=`${iw}×${id}×${dep}`;
+  // 그림
+  const total=sinkL+W+dry+rinse+wtL,sc=820/Math.max(total,2000),x0=40,y=120,hBox=200*sc*1.2;
+  let x=x0,g='';
+  const box=(wd,label,fill,sub)=>{const px=wd*sc;g+=`<rect x="${x}" y="${y}" width="${px}" height="${hBox}" rx="8" fill="${fill}" stroke="#2F5A49" stroke-width="2"/><text x="${x+px/2}" y="${y+hBox/2}" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">${label}</text>${sub?`<text x="${x+px/2}" y="${y+hBox/2+22}" text-anchor="middle" fill="#A3A3A3" font-size="12.5">${sub}</text>`:''}<text x="${x+px/2}" y="${y+hBox+26}" text-anchor="middle" fill="#8FCDB4" font-size="13">가로 ${wd}</text>`;x+=px+6;};
+  if(sinkL)box(sinkL,'싱크대','#111');
+  // 세척조: 물 채우기
+  const px=W*sc;g+=`<rect x="${x}" y="${y}" width="${px}" height="${hBox}" rx="8" fill="#0B1F18" stroke="#8FCDB4" stroke-width="2.5"/><rect x="${x+4}" y="${y+hBox*(1-0.8*dep/380)}" width="${px-8}" height="${hBox*0.8*dep/380-4}" fill="#2E8C8A" opacity=".45"/>`;
+  const modeName={dual:'2면 듀얼',quad:'4면 포디움',floor:'바닥만'}[st.mode];
+  g+=`<text x="${x+px/2}" y="${y+hBox/2-6}" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">${st.mode==='quad'?'포디움':'듀얼 초음파'} ${W}</text><text x="${x+px/2}" y="${y+hBox/2+16}" text-anchor="middle" fill="#CFCFCF" font-size="12.5">${modeName} · ${st.freq} kHz · ${st.heat==='ir'?'적외선':'히터 없음'} · 버블 ${st.bub==='std'?'표준':'강력'}</text><text x="${x+px/2}" y="${y+hBox+26}" text-anchor="middle" fill="#8FCDB4" font-size="13">가로 ${W} · 앞뒤 ${D} · 깊이 ${dep}</text>`;
+  if(st.mode!=='floor')g+=`<rect x="${x+px-10}" y="${y+30}" width="6" height="${hBox-60}" rx="3" fill="#8FCDB4"/>`;
+  if(st.mode==='quad')g+=`<rect x="${x+4}" y="${y+30}" width="6" height="${hBox-60}" rx="3" fill="#8FCDB4"/><rect x="${x+12}" y="${y+4}" width="${px-24}" height="6" rx="3" fill="#8FCDB4" opacity=".6"/>`;
+  g+=`<rect x="${x+12}" y="${y+hBox-10}" width="${px-24}" height="6" rx="3" fill="#8FCDB4"/>`;
+  x+=px+6;
+  if(dry)box(dry,'수압식 건조기','#111','헹굼 · 건조');
+  if(rinse)box(rinse,'헹굼싱크','#111');
+  if(wtL)box(wtL,'작업대','#111');
+  g+=`<line x1="${x0}" y1="${y+hBox+50}" x2="${x-6}" y2="${y+hBox+50}" stroke="#444" stroke-dasharray="4 4"/><text x="${(x0+x)/2}" y="${y+hBox+70}" text-anchor="middle" fill="#A3A3A3" font-size="13">설치 총 길이 ${total.toLocaleString()} mm · 높이 830</text>`;
+  pv.innerHTML=g;
+}
+function makeQuote(){
+  const W=w.value,D=d.value;const line={c:'컴팩트형',s:'표준형(수압식 건조기+작업대)',r:'헹굼분리형(헹굼싱크)'}[st.line];
+  q.value=`[클린아이디어 주문제작 견적 요청]
+· 세척조 가로 ${W} / 앞뒤 ${D} / 높이 830 / 수조 깊이 ${st.depth}
+· 초음파 ${{dual:'2면 듀얼(바닥+뒷면)',quad:'4면 포디움(바닥+네 벽면)',floor:'바닥만'}[st.mode]} · 진동자 ${st.freq} kHz · ${st.heat==='ir'?'적외선 히팅':'히터 없음'} · 버블 ${st.bub==='std'?'표준':'강력'}
+· 설치 구성: ${line} · 싱크대 ${st.sink==='y'?'포함':'기존 사용'}${st.line==='s'?` · 작업대 ${wt.value}`:''}
+· 물 용량 약 ${sL.textContent}L · 설치 총 길이 ${sLen.textContent}mm
+· 업종 / 좌석 수 / 설치 주소: (적어 주세요)`;
+  q.select();
+}
+render();
+</script>
+</body>
+</html>
